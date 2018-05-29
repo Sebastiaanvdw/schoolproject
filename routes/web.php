@@ -1,19 +1,8 @@
 <?php
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::resource('/vacancies', 'VacanciesController');
 
-Route::get('/vacancies', 'VacanciesController@index');
+/*Laravel resources en Laravel collective*/
+Auth::routes();
 
-Route::get('/vacancies/create', 'VacanciesController@create');
-
-Route::post('/vacancies/store', 'VacanciesController@store');
-
-Route::get('/vacancies/{vacancy}', 'VacanciesController@show');
-
-Route::delete('/vacancies/delete/{vacancy}', 'VacanciesController@delete');
-
-Route::get('/vacancies/update/{vacancy}', 'VacanciesController@update');
-
-Route::patch('/vacancies/edit/{vacancy}', 'VacanciesController@edit');
+Route::get('/home', 'HomeController@index')->name('home');

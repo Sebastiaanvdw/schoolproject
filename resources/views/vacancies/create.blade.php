@@ -1,29 +1,25 @@
-<div class="col-sm-8 blog-main">
+@extends('layouts.app')
+@include('layouts.errors')
 
+@section ('content')
+    <div class="jumbotron">
+        <div class="container">
         <h1>Create a vacancy</h1>
 
-        <hr>
-
-        <form method="POST" action="{{ url('vacancies/store')}}">
-
-            {{csrf_field()}}
-
-            <div class="form-group" method="POST" action="/vacancies/store">
-                <label for="title">Title:</label>
-                <input type="text" class="form-control" id="title" name="title">
+        {!! Form::open(['url' => 'vacancies', 'method' => 'POST']) !!}
+        {!! Form::token() !!}
+            <div class="form-group">
+                {!! Form::label('title', 'Title') !!}
+                {!! Form::text('title', '', ['class' => 'form-control']) !!}
+                {!! Form::label('body', 'Body') !!}
+                {!! Form::text('body', '', ['class' => 'form-control']) !!}
             </div>
 
             <div class="form-group">
-                <label for="body">Body</label>
-                <textarea id="body" name="body" class="form-control"></textarea>
+                {!! Form::submit('Create', ['class' => 'form-control']) !!}
             </div>
-
-            <div class="form-group">
-
-                <button type="submit" class="btn btn-primary">Create</button>
-
-            </div>
-
-        </form>
-</div>
+            {!! Form::close() !!}
+        </div>
+    </div>
+@endsection
 

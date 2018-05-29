@@ -1,128 +1,38 @@
-<!doctype html>
-<html lang="{{ app()->getLocale() }}">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.app')
+@include('layouts.errors')
 
-    <title>Laravel</title>
+@section('content')
 
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
-
-    <!-- Styles -->
-    <style>
-        html, body {
-            background-color: #fff;
-            color: #636b6f;
-            font-family: 'Raleway', sans-serif;
-            font-weight: 100;
-            height: 100vh;
-            margin: 0;
-        }
-
-        .full-height {
-            height: 100vh;
-        }
-
-        .flex-center {
-            align-items: center;
-            display: flex;
-            justify-content: center;
-        }
-
-        .position-ref {
-            position: relative;
-        }
-
-        .top-right {
-            position: absolute;
-            right: 10px;
-            top: 18px;
-        }
-
-        .content {
-            text-align: center;
-        }
-
-        .title {
-            font-size: 84px;
-        }
-
-        .links > a {
-            color: #636b6f;
-            padding: 0 25px;
-            font-size: 12px;
-            font-weight: 600;
-            letter-spacing: .1rem;
-            text-decoration: none;
-            text-transform: uppercase;
-        }
-
-        .m-b-md {
-            margin-bottom: 30px;
-        }
-    </style>
-</head>
-<body>
-<div class="flex-center position-ref full-height">
-    @if (Route::has('login'))
-        <div class="top-right links">
-            @auth
-                <a href="{{ url('/home') }}">Home</a>
-            @else
-                <a href="{{ route('login') }}">Login</a>
-                <a href="{{ route('register') }}">Register</a>
-            @endauth
+    <div class="jumbotron">
+        <div class="container">
+            <table>
+                <tr>
+                    <th>Title:</th>
+                    <th>Body:</th>
+                </tr>
+                @foreach($vacancies as $vacancy)
+                    <tr>
+                        <td>
+                            <a href="vacancies/{{ $vacancy->id }}">
+                                {{$vacancy->title}}
+                            </a>
+                        </td>
+                        <td>{{$vacancy->body}}</td>
+                        <td>{{ Form::open(['method' => 'DELETE', 'route' => ['vacancies.destroy', $vacancy->id]]) }}
+                            {{ Form::submit('Delete', ['class' => 'btn btn-danger']) }}
+                            {{ Form::close() }}
+                        </td>
+                        <td>{{ Form::open(['method' => 'GET', 'route' => ['vacancies.edit', $vacancy->id]]) }}
+                            {{ Form::submit('Edit', ['class' => 'btn btn-primary']) }}
+                            {{ Form::close() }}
+                        </td>
+                    </tr>
+                @endforeach
+                <a href="vacancies/create">
+                {{ Form::submit('Create', ['class' => 'btn btn-primary']) }}
+                </a>
+            </table>
         </div>
-    @endif
-
-    <div class="content">
-        @foreach ($vacancies as $vacancy)
-
-            <div class="blog-post">
-                <h2 class="blog-post-title">
-
-                    <a href="vacancies/{{ $vacancy->id }}">
-
-                        {{ $vacancy->title }}
-
-                    </a>
-
-                </h2>
-
-                <p class="blog-post-meta">
-
-                    {{ $vacancy->created_at->toFormattedDateString() }}
-
-                </p>
-
-                {{ $vacancy->body }}
-
-
-
-
-                <form action="{{ url('vacancies/delete' , $vacancy->id ) }}" method="POST">
-                    {{ csrf_field() }}
-                    {{ method_field('DELETE') }}
-                    <button type="submit" class="btn btn-primary">Delete</button>
-                </form>
-                <br>
-                <form action="{{ url('vacancies/edit' , $vacancy->id ) }}" method="POST">
-                    {{ csrf_field() }}
-                    {{ method_field('PATCH') }}
-                    <button type="submit" class="btn btn-primary">Edit</button>
-                </form>
-
-
-
-
-
-            </div>
-            <br>
-
-        @endforeach
     </div>
-</div>
-</body>
-</html>
+
+@endsection

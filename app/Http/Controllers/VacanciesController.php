@@ -14,10 +14,20 @@ class VacanciesController extends Controller
         return view('vacancies.index', compact('vacancies'));
     }
 
-
     public function create(Vacancy $vacancy)
     {
         return view('vacancies.create', compact('vacancy'));
+    }
+
+    public function store()
+    {
+        $vacancy = new Vacancy();
+        $vacancy->title = request('title');
+        $vacancy->body = request('body');
+        $vacancy->save();
+
+        return redirect()->action('VacanciesController@index')->with('Succes', 'advertentie geplaatst.');
+
     }
 
     public function show(vacancy $vacancy)
@@ -27,51 +37,27 @@ class VacanciesController extends Controller
 
     }
 
-    public function delete(vacancy $vacancy)
-    {
-
-        $vacancy->delete($vacancy);
-
-        return view('vacancies.delete', compact('vacancy'));
-
-    }
-
     public function edit(vacancy $vacancy)
     {
         return view('vacancies.edit',  compact('vacancy'));
     }
 
-    public function update(Request $request, $id)
+    public function update(UpdateVacanciesPost $request, vacancy $vacancy)
     {
+        $validated = $request->validated();
 
-        $this->validate(request(), [
+        $vacancy->title = $request['title'];
+        $vacancy->body = $request['body'];
+        $vacancy->save();
 
-            'body' => 'required',
-            'title' => 'required'
-
-
-
-        ]);
-        $post = Vacancy::find($id);
-        $post->update($request->all());
-
-        /* Session::flash('message', 'Successfully updated Blog!');
-         return redirect(route('posts.all'));*/
+        return redirect()->action('VacanciesController@index')->with('correct', 'Vacancy Updated');
     }
 
-
-    public function store()
+    public function destroy($id)
     {
-        $this-> validate(request(), [
+        $vacancy = vacancy::findOrFail($id);
+        $vacancy->delete();
 
-            'title' => 'required',
-
-            'body' => 'required'
-        ]);
-
-        vacancy::create(request(['title', 'body']));
-
-        return redirect('/vacancies');
-
+        return redirect()->action('VacanciesController@index');
     }
 }
