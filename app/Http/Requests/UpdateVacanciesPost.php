@@ -24,8 +24,8 @@ class UpdateVacanciesPost extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required|max:250|min5',
-            'body' => 'required|min5'
+            'title' => 'required|max:250',
+            'body' => 'required|max:250'
         ];
     }
 }

@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\vacancy;
+use App\Http\Requests\UpdateVacanciesPost;
 use Illuminate\Http\Request;
+
+use App\vacancy;
 
 class VacanciesController extends Controller
 {
@@ -44,11 +46,7 @@ class VacanciesController extends Controller
 
     public function update(UpdateVacanciesPost $request, vacancy $vacancy)
     {
-        $validated = $request->validated();
-
-        $vacancy->title = $request['title'];
-        $vacancy->body = $request['body'];
-        $vacancy->save();
+        $vacancy->update($request->only('id','title','body'));
 
         return redirect()->action('VacanciesController@index')->with('correct', 'Vacancy Updated');
     }

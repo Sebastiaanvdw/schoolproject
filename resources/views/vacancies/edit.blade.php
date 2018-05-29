@@ -5,7 +5,7 @@
         <div class="container">
             <h1>Edit a vacancy</h1>
 
-            {!! Form::open(['url' => 'vacancies', 'method' => 'PATCH']) !!}
+            {!! Form::open(['url' => 'vacancies/'.$vacancy->id, 'method' => 'PATCH']) !!}
             {!! Form::token() !!}
             <div class="form-group">
                 {!! Form::label('title', 'Title') !!}
