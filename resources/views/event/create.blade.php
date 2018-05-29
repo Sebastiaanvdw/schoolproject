@@ -3,7 +3,7 @@
 @section('content')
     <div class="jumbotron">
         <div class="container">
-            {!! Form::open(['url' => 'event/create', 'method' => 'POST']) !!}
+            {!! Form::open(['url' => 'create', 'method' => 'POST']) !!}
             {!! Form::token() !!}
             <div class="form-group">
                 {{FORM::label('name', 'Name')}}

@@ -37,7 +37,10 @@ class EventController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $event = new Event($request);
+        $event->save();
+
+        return redirect()->route('event.show', $event);
     }
 
     /**
