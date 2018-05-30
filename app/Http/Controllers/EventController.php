@@ -37,10 +37,16 @@ class EventController extends Controller
      */
     public function store(Request $request)
     {
-        $event = new Event($request);
+        $event = new Event();
+        $event->name =              request('name');
+        $event->location =          request('location');
+        $event->date =              request('date');
+        $event->starttime =         request('starttime');
+        $event->endtime =           request('endtime');
+        $event->agerestriction =    request('agerestriction');
         $event->save();
 
-        return redirect()->route('event.show', $event);
+        return redirect()->route('event.store', $event);
     }
 
     /**
@@ -49,9 +55,9 @@ class EventController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Event $event)
     {
-        //
+        return view('event.show', compact('event'));
     }
 
     /**

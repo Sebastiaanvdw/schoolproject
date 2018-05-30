@@ -12,7 +12,7 @@
     </tr>
     @foreach($events as $event)
     <tr>
-        <td>{{ $event->name }}</td>
+        <td><a href="{{ route('event.show', $event) }}"> {{ $event->name }}</a></td>
         <td>{{ $event->location }}</td>
         <td>{{ $event->date }}</td>
         <td>{{ $event->starttime }}</td>

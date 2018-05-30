@@ -3,7 +3,7 @@
 @section('content')
     <div class="jumbotron">
         <div class="container">
-            {!! Form::open(['url' => 'create', 'method' => 'POST']) !!}
+            {!! Form::open(['url' => 'event', 'method' => 'POST']) !!}
             {!! Form::token() !!}
             <div class="form-group">
                 {{FORM::label('name', 'Name')}}
@@ -15,11 +15,11 @@
                 {{FORM::label('date', 'Date')}}
                 {!! Form::date('date', '', ['class' => 'form-control']) !!}
 
-                {{FORM::label('starttime', 'Start Time')}}
-                {!! Form::dateTime('starttime', '', ['class' => 'form-control']) !!}
+                {{FORM::label('starttime', 'Start time')}}
+                {!! Form::text('starttime', '', ['class' => 'form-control']) !!}
 
-                {{FORM::label('endtime', 'End Time')}}
-                {!! Form::dateTime('endtime', '', ['class' => 'form-control']) !!}
+                {{FORM::label('endtime', 'End time')}}
+                {!! Form::text('endtime', '', ['class' => 'form-control']) !!}
 
                 {{FORM::label('agerestriction', 'Age restriction')}}
                 {!! Form::number('agerestriction', '', ['class' => 'form-control']) !!}
