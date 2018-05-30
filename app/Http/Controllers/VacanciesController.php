@@ -25,7 +25,7 @@ class VacanciesController extends Controller
     {
         $vacancy = new Vacancy();
         $vacancy->title = request('title');
-        $vacancy->body = request('body');
+        $vacancy->description = request('description');
         $vacancy->save();
 
         return redirect()->action('VacanciesController@index')->with('Succes', 'advertentie geplaatst.');
@@ -46,9 +46,9 @@ class VacanciesController extends Controller
 
     public function update(UpdateVacanciesPost $request, vacancy $vacancy)
     {
-        $vacancy->update($request->only('id','title','body'));
+        $vacancy->update($request->only('id','title','description'));
 
-        return redirect()->action('VacanciesController@index')->with('correct', 'Vacancy Updated');
+        return redirect()->action('VacanciesController@index')->with('Correct', 'Vacancy Updated');
     }
 
     public function destroy($id)

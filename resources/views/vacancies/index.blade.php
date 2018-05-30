@@ -2,13 +2,11 @@
 @include('layouts.errors')
 
 @section('content')
-
-    <div class="jumbotron">
         <div class="container">
-            <table>
+            <table class="table">
                 <tr>
                     <th>Title:</th>
-                    <th>Body:</th>
+                    <th>Description:</th>
                 </tr>
                 @foreach($vacancies as $vacancy)
                     <tr>
@@ -17,7 +15,7 @@
                                 {{$vacancy->title}}
                             </a>
                         </td>
-                        <td>{{$vacancy->body}}</td>
+                        <td>{{$vacancy->description}}</td>
                         <td>{{ Form::open(['method' => 'DELETE', 'route' => ['vacancies.destroy', $vacancy->id]]) }}
                             {{ Form::submit('Delete', ['class' => 'btn btn-danger']) }}
                             {{ Form::close() }}
@@ -28,11 +26,10 @@
                         </td>
                     </tr>
                 @endforeach
-                <a href="vacancies/create">
-                {{ Form::submit('Create', ['class' => 'btn btn-primary']) }}
-                </a>
             </table>
+            <a href="vacancies/create">
+                {{ Form::submit('Create', ['class' => 'btn btn-primary']) }}
+            </a>
         </div>
-    </div>
 
 @endsection

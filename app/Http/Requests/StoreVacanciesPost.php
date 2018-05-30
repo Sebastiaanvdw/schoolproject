@@ -26,8 +26,8 @@ class StoreVacanciesPost extends FormRequest
         return [
             //
 
-            'title' => 'required|unique:books|max:250|min5',
-            'body' => 'required|unique:books|min5'
+            'title' => 'required|unique:vacancies|max:250',
+            'description' => 'required|unique:vacancies'
         ];
     }
 }

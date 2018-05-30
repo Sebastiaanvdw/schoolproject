@@ -2,6 +2,6 @@
 
     <h1>{{ $vacancy->title }}</h1>
 
-    <p>{{ $vacancy->body }}</p>
+    <p>{{ $vacancy->description }}</p>
 
 </div>
