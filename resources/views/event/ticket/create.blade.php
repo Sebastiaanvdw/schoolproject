@@ -1,25 +1,34 @@
-<!-- create.blade.php -->
+@extends('layouts.app')
 
-@extends('master')
 @section('content')
-    <div class="container">
-        <form>
-            <div class="form-group row">
-                <label for="lgFormGroupInput" class="col-sm-2 col-form-label col-form-label-lg">Title</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control form-control-lg" id="lgFormGroupInput" placeholder="title" name="title">
-                </div>
+    <div class="jumbotron">
+        <div class="container">
+            {!! Form::open(['url' => 'create', 'method' => 'POST']) !!}
+            {!! Form::token() !!}
+            <div class="form-group">
+                {{FORM::label('id', 'Id')}}
+                {!! Form::text('id', '', ['class' => 'form-control']) !!}
+
+                {{FORM::label('name', 'Name')}}
+                {!! Form::text('name', '', ['class' => 'form-control']) !!}
+
+                {{FORM::label('date', 'Date')}}
+                {!! Form::date('date', '', ['class' => 'form-control']) !!}
+
+                {{FORM::label('starttime', 'Start Time')}}
+                {!! Form::dateTime('starttime', '', ['class' => 'form-control']) !!}
+
+                {{FORM::label('endtime', 'End Time')}}
+                {!! Form::dateTime('endtime', '', ['class' => 'form-control']) !!}
+
+                {{FORM::label('age', 'Age ')}}
+                {!! Form::number('age', '', ['class' => 'form-control']) !!}
             </div>
-            <div class="form-group row">
-                <label for="smFormGroupInput" class="col-sm-2 col-form-label col-form-label-sm">Post</label>
-                <div class="col-sm-10">
-                    <textarea name="post" rows="8" cols="80"></textarea>
-                </div>
+
+            <div class="form-group">
+                {!! Form::submit('Create', ['class' => 'form-control']) !!}
             </div>
-            <div class="form-group row">
-                <div class="col-md-2"></div>
-                <input type="submit" class="btn btn-primary">
-            </div>
-        </form>
+            {!! Form::close() !!}
+        </div>
     </div>
 @endsection

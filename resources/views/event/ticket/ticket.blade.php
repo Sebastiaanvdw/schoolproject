@@ -3,21 +3,19 @@
 @section('content')
     <table style="border: solid">
         <tr>
+            <th>Id</th>
             <th>Name</th>
-            <th>Date</th>
-            <th>Location</th>
             <th>Begin time</th>
             <th>End time</th>
-            <th>Age restriction</th>
+            <th>Age </th>
         </tr>
-        @foreach($events as $event)
+        @foreach($tickets as $ticket)
             <tr>
-                <td>{{ $event->name }}</td>
-                <td>{{ $event->location }}</td>
-                <td>{{ $event->date }}</td>
-                <td>{{ $event->starttime }}</td>
-                <td>{{ $event->endtime }}</td>
-                <td>{{ $event->agerestriction }}</td>
+                <td>{{ $ticket->id }}</td>
+                <td>{{ $ticket->name }}</td>
+                <td>{{ $ticket->beigintime }}</td>
+                <td>{{ $ticket->endtime }}</td>
+                <td>{{ $ticket->age }}</td>
             </tr>
         @endforeach
     </table>
