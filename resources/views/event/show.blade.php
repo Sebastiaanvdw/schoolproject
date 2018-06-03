@@ -8,8 +8,8 @@
                     <div class="card-header">{{ $event->name }}</div>
                     <p>Date: {{ $event->date }}</p>
                     <p>Location: {{ $event->location }}</p>
-                    <p>Begin time: {{ $event->begintime }}</p>
-                    <p>End time: {{ $event->enttime }}</p>
+                    <p>Begin time: {{ $event->starttime }}</p>
+                    <p>End time: {{ $event->endtime }}</p>
                     <p>Age restriction: {{ $event->agerestriction }}</p>
 
                     <a href="{{ URL::to('event/'.$event->id. '/edit') }}"><button class="btn btn-warning">Edit </button></a>

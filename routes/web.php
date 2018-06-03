@@ -19,6 +19,7 @@ Route::resource('/ticket', 'TicketController');
 
 Route::resource('/event', 'EventController');
 
+Route::resource('/home', 'HomeController');
+
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');

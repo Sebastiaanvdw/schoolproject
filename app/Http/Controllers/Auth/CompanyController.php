@@ -9,19 +9,8 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
-class RegisterController extends Controller
+class CompanyController extends Controller
 {
-    /*
-    |--------------------------------------------------------------------------
-    | Register Controller
-    |--------------------------------------------------------------------------
-    |
-    | This controller handles the registration of new users as well as their
-    | validation and creation. By default this controller uses a trait to
-    | provide this functionality without requiring any additional code.
-    |
-    */
-
     use RegistersUsers;
 
     /**
@@ -69,7 +58,28 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
-        $user->assignRole('user');
+        $user->assignRole('company');
         return $user;
+    }
+
+    public function show(User $user)
+    {
+        return view('home', compact('user'));
+    }
+
+    public function edit(User $user)
+    {
+        return view('auth.edit', compact('user'));
+    }
+
+    public function update(Request $request, User $user)
+    {
+        $user = Auth::user();
+        $user->name =           $request->name;
+        $user->email =          $request->email;
+        $user->save();
+
+        return redirect()->action('HomeController@index')->with('Correct', 'User Updated');
+
     }
 }

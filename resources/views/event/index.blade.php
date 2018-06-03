@@ -21,5 +21,9 @@
     </tr>
     @endforeach
 </table>
-    <a href="{{URL::to('event/create')}}"> <button>Create</button></a>
+
+@role('user')
+<a href="{{URL::to('event/create')}}"> <button>Create</button></a>
+@endrole
+
 @endsection
