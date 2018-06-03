@@ -6,6 +6,7 @@
             <table class="table">
                 <tr>
                     <th>Title:</th>
+                    <th>Occupation:</th>
                     <th>Description:</th>
                 </tr>
                 @foreach($vacancies as $vacancy)
@@ -15,6 +16,7 @@
                                 {{$vacancy->title}}
                             </a>
                         </td>
+                        <td>{{$vacancy->occupation}}</td>
                         <td>{{$vacancy->description}}</td>
                         <td>{{ Form::open(['method' => 'DELETE', 'route' => ['vacancies.destroy', $vacancy->id]]) }}
                             {{ Form::submit('Delete', ['class' => 'btn btn-danger']) }}

@@ -2,7 +2,7 @@
 
 namespace App;
 
-class Vacancy extends Model
+class Advertisement extends Model
 {
     //
 }

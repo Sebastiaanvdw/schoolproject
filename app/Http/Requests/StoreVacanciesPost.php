@@ -24,10 +24,9 @@ class StoreVacanciesPost extends FormRequest
     public function rules()
     {
         return [
-            //
-
-            'title' => 'required|unique:vacancies|max:250',
-            'description' => 'required|unique:vacancies'
+            'title' => 'required',
+            'occupation' => 'required',
+            'description' => 'required'
         ];
     }
 }

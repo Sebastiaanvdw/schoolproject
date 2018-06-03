@@ -6,7 +6,7 @@
         <div class="container">
         <h1>Create a advertisement</h1>
 
-        {!! Form::open(['url' => 'vacancies', 'method' => 'POST']) !!}
+        {!! Form::open(['url' => 'advertisements', 'method' => 'POST']) !!}
         {!! Form::token() !!}
             <div class="form-group">
                 {!! Form::label('title', 'Title') !!}

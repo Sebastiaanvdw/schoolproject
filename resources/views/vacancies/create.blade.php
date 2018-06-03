@@ -11,6 +11,8 @@
             <div class="form-group">
                 {!! Form::label('title', 'Title') !!}
                 {!! Form::text('title', '', ['class' => 'form-control']) !!}
+                {!! Form::label('occupation', 'Occupation') !!}
+                {!! Form::text('occupation', '', ['class' => 'form-control']) !!}
                 {!! Form::label('description', 'Description') !!}
                 {!! Form::textarea('description', '', ['class' => 'form-control']) !!}
             </div>
@@ -19,6 +21,9 @@
                 {!! Form::submit('Create', ['class' => 'form-control']) !!}
             </div>
             {!! Form::close() !!}
+            <div class="form-group">
+            <a href="{{ url('vacancies') }}">Back</a>
+            </div>
         </div>
     </div>
 @endsection

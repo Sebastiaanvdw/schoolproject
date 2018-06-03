@@ -1,6 +1,7 @@
 <?php
 
 Route::resource('/vacancies', 'VacanciesController');
+Route::resource('/advertisements', 'AdvertisementsController');
 
 /*Laravel resources en Laravel collective*/
 Auth::routes();

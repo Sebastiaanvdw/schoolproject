@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\UpdateVacanciesPost;
-use Illuminate\Http\Request;
+use App\Http\Requests\StoreVacanciesPost;
+use App\Http\Requests\UpdateVacanc iesPost;
+use Illuminate\Http\Requests;
 
 use App\vacancy;
 
@@ -21,15 +22,15 @@ class VacanciesController extends Controller
         return view('vacancies.create', compact('vacancy'));
     }
 
-    public function store()
+    public function store(StoreVacanciesPost $request)
     {
         $vacancy = new Vacancy();
         $vacancy->title = request('title');
+        $vacancy->occupation = request('occupation');
         $vacancy->description = request('description');
         $vacancy->save();
 
         return redirect()->action('VacanciesController@index')->with('Succes', 'advertentie geplaatst.');
-
     }
 
     public function show(vacancy $vacancy)
@@ -46,7 +47,10 @@ class VacanciesController extends Controller
 
     public function update(UpdateVacanciesPost $request, vacancy $vacancy)
     {
-        $vacancy->update($request->only('id','title','description'));
+        $vacancy->title = $request->title;
+        $vacancy->occupation = $request->occupation;
+        $vacancy->description = $request->description;
+        $vacancy->save();
 
         return redirect()->action('VacanciesController@index')->with('Correct', 'Vacancy Updated');
     }
