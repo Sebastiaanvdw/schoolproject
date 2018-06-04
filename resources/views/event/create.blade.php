@@ -29,6 +29,9 @@
                 {!! Form::submit('Create', ['class' => 'form-control']) !!}
             </div>
             {!! Form::close() !!}
+            <div class="form-group">
+                <a href="{{ url('event') }}">Back</a>
+            </div>
         </div>
     </div>
 @endsection
