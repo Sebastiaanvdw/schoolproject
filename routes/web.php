@@ -1,9 +1,14 @@
 <?php
 
+/*Home*/
+Route::resource('/home', 'HomeController');
+/*Vacancies*/
 Route::resource('/vacancies', 'VacanciesController');
+/*Advertisements*/
 Route::resource('/advertisements', 'AdvertisementsController');
-
-/*Laravel resources en Laravel collective*/
+/*Tickets*/
+Route::resource('/ticket', 'TicketController');
+/*Events*/
+Route::resource('/event', 'EventController');
+/*Auth*/
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
