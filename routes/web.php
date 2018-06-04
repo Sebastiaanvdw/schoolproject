@@ -1,5 +1,7 @@
 <?php
 
+/*Welcome*/
+Route::get('/', function() { return view ('welcome');});
 /*Home*/
 Route::resource('/home', 'HomeController');
 /*Vacancies*/
