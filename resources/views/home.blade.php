@@ -15,7 +15,7 @@
                         @endif
 
                         You are logged in!
-                        <a href="{{ URL::to('home/'.$userId = Auth::id(). '/edit') }}"><button class="btn btn-warning">Edit </button></a>
+                        <br><a href="{{ URL::to('home/'.$userId = Auth::id(). '/edit') }}"><button class="btn btn-primary">Edit </button></a>
                     </div>
                 </div>
             </div>

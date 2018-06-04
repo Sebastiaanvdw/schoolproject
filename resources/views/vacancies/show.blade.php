@@ -1,8 +1,20 @@
-<div class="col-sm-8">
+@extends('layouts.app')
 
-    <h1>{{ $vacancy->title }}</h1>
-
-    <p>{{ $vacancy->occupation }}</p>
-    <p>{{ $vacancy->description }}</p>
-
-</div>
+@section('content')
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">{{ $vacancy->title }}</div>
+                    <div class="card-body">
+                        <p class="card-text">Occupation: {{ $vacancy->occupation }}</p>
+                        <p class="card-text">Description: {{ $vacancy->description }}}</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <a href="{{ url('vacancies') }}">Back</a>
+                </div>
+            </div>
+        </div>
+    </div>
+@endsection

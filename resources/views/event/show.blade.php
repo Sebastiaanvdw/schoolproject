@@ -6,17 +6,23 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">{{ $event->name }}</div>
-                    <p>Date: {{ $event->date }}</p>
-                    <p>Location: {{ $event->location }}</p>
-                    <p>Begin time: {{ $event->starttime }}</p>
-                    <p>End time: {{ $event->endtime }}</p>
-                    <p>Age restriction: {{ $event->agerestriction }}</p>
-
-                    <a href="{{ URL::to('event/'.$event->id. '/edit') }}"><button class="btn btn-warning">Edit </button></a>
+                    <div class="card-body">
+                    <p class="card-text">Date: {{ $event->date }}</p>
+                    <p class="card-text">Location: {{ $event->location }}</p>
+                    <p class="card-text">Begin time: {{ $event->starttime }}</p>
+                    <p class="card-text">End time: {{ $event->endtime }}</p>
+                    <p class="card-text">Age restriction: {{ $event->agerestriction }}</p>
+                        @role('user')
+                        <a href="{{ URL::to('event/'.$event->id. '/edit') }}"><button class="btn btn-primary">Edit </button></a>
 
                     {{ Form::open(['method' => 'DELETE', 'route' => ['event.destroy', $event->id]]) }}
                     {{ Form::submit('Delete', ['class' => 'btn btn-danger']) }}
                     {{ Form::close() }}
+                        @endrole
+                    </div>
+                </div>
+                <div class="form-group">
+                    <a href="{{ url('event') }}">Back</a>
                 </div>
             </div>
         </div>
