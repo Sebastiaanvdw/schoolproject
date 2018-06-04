@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreVacanciesPost;
-use App\Http\Requests\UpdateVacanc iesPost;
+use App\Http\Requests\UpdateVacanciesPost;
 use Illuminate\Http\Requests;
 
 use App\vacancy;
