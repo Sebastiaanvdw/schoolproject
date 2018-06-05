@@ -1,7 +1,19 @@
-<div class="col-sm-8">
+@extends('layouts.app')
 
-    <h1>{{ $advertisement->title }}</h1>
-
-    <p>{{ $advertisement->description }}</p>
-
-</div>
+@section('content')
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">{{ $advertisement->title }}</div>
+                    <div class="card-body">
+                        <p class="card-text">Description: {{ $advertisement->description }}</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <a href="{{ url('advertisements') }}">Back</a>
+                </div>
+            </div>
+        </div>
+    </div>
+@endsection
