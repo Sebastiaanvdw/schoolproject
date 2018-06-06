@@ -20,7 +20,7 @@
             </div>
             {!! Form::close() !!}
             <div class="form-group">
-            <a href="{{ url('vacancies') }}">Back</a>
+            <a href="{{ url('advertisements') }}">Back</a>
             </div>
         </div>
     </div>
