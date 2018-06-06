@@ -17,7 +17,6 @@ class RolesAndPermissionsSeeder extends Seeder
         Permission::create(['name' => 'delete events']);
 
         // create roles and assign created permissions
-
         $role = Role::create(['name' => 'user']);
         $role->givePermissionTo('create events');
 

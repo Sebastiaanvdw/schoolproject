@@ -11,8 +11,8 @@
             <div class="form-group">
                 {!! Form::label('title', 'Title') !!}
                 {!! Form::text('title', '', ['class' => 'form-control']) !!}
-                {!! Form::label('occupation', 'Occupation') !!}
-                {!! Form::select('occupation_id', '', ['class' => 'form-control']) !!}
+                {!! Form::label('occupation_id', 'Occupation') !!}
+                {!! Form::select('occupation_id', $occupations, $vacancy->occupation_id, ['class' => 'form-control']) !!}
                 {!! Form::label('description', 'Description') !!}
                 {!! Form::textarea('description', '', ['class' => 'form-control']) !!}
             </div>

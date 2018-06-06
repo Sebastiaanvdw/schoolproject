@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreVacanciesPost;
 use App\Http\Requests\UpdateVacanciesPost;
+use App\Occupation;
 use Illuminate\Http\Requests;
 
 use App\vacancy;
@@ -24,14 +25,19 @@ class VacanciesController extends Controller
 
     public function create(Vacancy $vacancy)
     {
-        return view('vacancies.create', compact('vacancy'));
+        $occupations = [];
+        foreach (Occupation::all() as $occupation) {
+            $occupations[$occupation->id] = $occupation->occupationName;
+        }
+
+        return view('vacancies.create', compact('vacancy', 'occupations'));
     }
 
     public function store(StoreVacanciesPost $request)
     {
         $vacancy = new Vacancy();
         $vacancy->title = request('title');
-        $vacancy->occupation = request('occupation');
+        $vacancy->occupation_id = request('occupation_id');
         $vacancy->description = request('description');
         $vacancy->save();
 
@@ -47,13 +53,18 @@ class VacanciesController extends Controller
 
     public function edit(vacancy $vacancy)
     {
-        return view('vacancies.edit',  compact('vacancy'));
+        $occupations = [];
+        foreach (Occupation::all() as $occupation) {
+            $occupations[$occupation->id] = $occupation->occupationName;
+        }
+
+        return view('vacancies.edit',  compact('vacancy', 'occupations'));
     }
 
     public function update(UpdateVacanciesPost $request, vacancy $vacancy)
     {
         $vacancy->title = $request->title;
-        $vacancy->occupation = $request->occupation;
+        $vacancy->occupation_id = $request->occupation_id;
         $vacancy->description = $request->description;
         $vacancy->save();
 

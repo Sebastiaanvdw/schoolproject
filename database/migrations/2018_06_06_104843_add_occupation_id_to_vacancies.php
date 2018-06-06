@@ -27,6 +27,7 @@ class AddOccupationIdToVacancies extends Migration
     public function down()
     {
         Schema::table('vacancies', function (Blueprint $table) {
+            $table->dropForeign('vacancies_occupation_id_foreign');
             $table->dropColumn('occupation_id');
         });
     }
