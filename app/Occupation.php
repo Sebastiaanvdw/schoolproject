@@ -4,9 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Occupations extends Model
+class Occupation extends Model
 {
-    public function occupations()
+    public function occupation()
     {
         return $this->hasMany('occupations');
     }

@@ -11,15 +11,15 @@ class OccupationsTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(\App\Occupations::class, 1)->create(array(
+        factory(\App\Occupation::class, 1)->create(array(
             'title' => 'Editor'
         ));
-        factory(\App\Occupations::class, 1)->create(array(
+        factory(\App\Occupation::class, 1)->create(array(
             'title' => 'Marketing'
         ));
-        factory(\App\Occupations::class, 1)->create(array(
+        factory(\App\Occupation::class, 1)->create(array(
             'title' => 'Communication'
         ));
-        factory(\App\Occupations::class, 0)->create();
+        // factory(\App\Occupations::class, 0)->create();
     }
 }
