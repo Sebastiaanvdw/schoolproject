@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\User;
+use App\Company;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -53,7 +53,7 @@ class CompanyController extends Controller
      */
     protected function create(array $data)
     {
-        $user = User::create([
+        $user = Company::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
@@ -62,17 +62,17 @@ class CompanyController extends Controller
         return $user;
     }
 
-    public function show(User $user)
+    public function show(Company $company)
     {
-        return view('home', compact('user'));
+        return view('home', compact('company'));
     }
 
-    public function edit(User $user)
+    public function edit(Company $company)
     {
-        return view('auth.edit', compact('user'));
+        return view('auth.edit', compact('company'));
     }
 
-    public function update(Request $request, User $user)
+    public function update(Request $request, Company $company)
     {
         $user = Auth::user();
         $user->name =           $request->name;
