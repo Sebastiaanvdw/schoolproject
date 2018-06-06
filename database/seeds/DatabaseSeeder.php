@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Model;
 
 class DatabaseSeeder extends Seeder
 {
@@ -17,7 +16,7 @@ class DatabaseSeeder extends Seeder
         $this->call(OccupationsTableSeeder::class);
         $this->call(AdvertisementsTableSeeder::class);
         $this->call(VacanciesTableSeeder::class);
+        $this->call(RolesAndPermissionsSeeder::class);
         Model::reguard();
-
     }
 }
