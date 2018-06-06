@@ -12,13 +12,13 @@ class OccupationsTableSeeder extends Seeder
     public function run()
     {
         factory(\App\Occupation::class, 1)->create(array(
-            'title' => 'Editor'
+            'occupationName' => 'Editor'
         ));
         factory(\App\Occupation::class, 1)->create(array(
-            'title' => 'Marketing'
+            'occupationName' => 'Marketing'
         ));
         factory(\App\Occupation::class, 1)->create(array(
-            'title' => 'Communication'
+            'occupationName' => 'Communication'
         ));
         // factory(\App\Occupations::class, 0)->create();
     }

@@ -7,8 +7,8 @@
                 <div class="card">
                     <div class="card-header">{{ $vacancy->title }}</div>
                     <div class="card-body">
-                        <p class="card-text">Occupation: {{ $vacancy->occupation }}</p>
-                        <p class="card-text">Description: {{ $vacancy->description }}</p>
+                        <p class="card-text"> {{ $vacancy->occupation }}</p>
+                        <p class="card-text"> {{ $vacancy->description }}</p>
                     </div>
                 </div>
                 <div class="form-group">

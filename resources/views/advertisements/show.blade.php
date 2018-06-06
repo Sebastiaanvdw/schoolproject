@@ -7,7 +7,7 @@
                 <div class="card">
                     <div class="card-header">{{ $advertisement->title }}</div>
                     <div class="card-body">
-                        <p class="card-text">Description: {{ $advertisement->description }}</p>
+                        <p class="card-text"> {{ $advertisement->description }}</p>
                     </div>
                 </div>
                 <div class="form-group">

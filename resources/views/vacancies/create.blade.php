@@ -12,7 +12,7 @@
                 {!! Form::label('title', 'Title') !!}
                 {!! Form::text('title', '', ['class' => 'form-control']) !!}
                 {!! Form::label('occupation', 'Occupation') !!}
-                {!! Form::text('occupation', '', ['class' => 'form-control']) !!}
+                {!! Form::select('occupation_id', '', ['class' => 'form-control']) !!}
                 {!! Form::label('description', 'Description') !!}
                 {!! Form::textarea('description', '', ['class' => 'form-control']) !!}
             </div>

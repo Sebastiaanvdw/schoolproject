@@ -16,7 +16,7 @@
                                 {{$vacancy->title}}
                             </a>
                         </td>
-                        <td>{{$vacancy->occupation}}</td>
+                        <td>{{$vacancy->occupation->occupationName}}</td>
                         <td>{{$vacancy->description}}</td>
                         <td>@role('user')
                             {{ Form::open(['method' => 'DELETE', 'route' => ['vacancies.destroy', $vacancy->id]]) }}

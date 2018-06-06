@@ -14,6 +14,11 @@ class VacanciesController extends Controller
     {
         $vacancies = vacancy::orderBy('created_at', 'asc')->get();
 
+        /*$vacancy = DB::table('vacancies')
+            ->join('occupations', 'vacancies.occupationId', '=', 'occupations.id')
+            ->select('vacancies.*', 'occupations.title')
+            ->get();*/
+
         return view('vacancies.index', compact('vacancies'));
     }
 
