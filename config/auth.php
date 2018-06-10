@@ -45,6 +45,11 @@ return [
             'driver' => 'token',
             'provider' => 'users',
         ],
+
+        'company' => [
+            'driver' => 'session',
+            'provider' => 'company',
+        ],
     ],
 
     /*
@@ -70,10 +75,10 @@ return [
             'model' => App\User::class,
         ],
 
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
+         'company' => [
+             'driver' => 'database',
+             'model' => App\Company::class,
+         ],
     ],
 
     /*
@@ -96,6 +101,11 @@ return [
             'provider' => 'users',
             'table' => 'password_resets',
             'expire' => 60,
+        ],
+        'company' => [
+            'provider' => 'company',
+            'table' => 'password_resets',
+            'expire' => 15,
         ],
     ],
 

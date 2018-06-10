@@ -70,9 +70,6 @@
                                 </button>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <a href="{{ url('.company.register') }}">Register as company</a>
-                        </div>
                     </form>
                 </div>
             </div>
