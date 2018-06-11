@@ -17,6 +17,10 @@
                                 <tr>
                                     <td><a href="{{ route('admin.show', $users) }}"> {{ $users->name }}</a></td>
                                     <td>{{ $users->email }}</td>
+                                    <td>{{ Form::open(['method' => 'GET', 'route' => ['admin.edit', $users->id]]) }}
+                                        {{ Form::submit('Edit', ['class' => 'btn btn-primary']) }}
+                                        {{ Form::close() }}
+                                    </td>
                                 </tr>
                             @endforeach
                         </table>

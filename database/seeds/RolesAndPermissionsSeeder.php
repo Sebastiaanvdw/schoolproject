@@ -26,6 +26,7 @@ class RolesAndPermissionsSeeder extends Seeder
         $role->givePermissionTo(['create events', 'edit events', 'delete events']);
 
         \App\User::find(1)->assignRole('user');
+        \App\User::find(2)->assignRole('company');
 
     }
 }

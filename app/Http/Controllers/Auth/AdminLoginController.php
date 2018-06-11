@@ -8,6 +8,10 @@ use Illuminate\Support\Facades\Auth;
 
 class AdminLoginController extends Controller
 {
+//    public function __construct()
+//    {
+//        $this->middleware('guest:admin');
+//    }
 
     public function showLoginForm()
     {
@@ -22,7 +26,7 @@ class AdminLoginController extends Controller
         ]);
 
         if (Auth::guard('admin')->attempt(['email' => $request->email, 'password' => $request->password], $request->remember)) {
-            return redirect()->intended(route('admin.dashboard'));
+            return redirect()->intended(route('admin.index'));
         };
 
         return redirect()->back()->withInput($request->only('email', 'remember'));

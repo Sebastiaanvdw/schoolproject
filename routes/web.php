@@ -8,9 +8,13 @@ Route::resource('/home', 'HomeController');
 
 /*Admin*/
 Route::resource('/admin', 'AdminsController');
-Route::get('/admin', 'AdminsController@index')->name('admin.dashboard');
-Route::get('/admin/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
-Route::post('/admin/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
+//Route::prefix('admin')->group(function() {
+//    Route::get('/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
+//    Route::post('/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
+//    Route::get('logout/', 'Auth\AdminLoginController@logout')->name('admin.logout');
+//    Route::get('/', 'AdminsController@index')->name('admin.index');
+////    Route::get('/', 'AdminsController@show')->name('admin.show');
+//});
 
 /*Vacancies*/
 Route::resource('/vacancies', 'VacanciesController');

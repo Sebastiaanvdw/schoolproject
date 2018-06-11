@@ -13,10 +13,10 @@ class AdminsController extends Controller
      *
      * @return void
      */
-    public function __construct()
-    {
-        $this->middleware('auth:admin');
-    }
+//    public function __construct()
+//    {
+//        $this->middleware('auth:admin');
+//    }
 
     /**
      * Show the application dashboard.
@@ -32,5 +32,10 @@ class AdminsController extends Controller
     public function show(User $user)
     {
         return view('admin.show', compact('user'));
+    }
+
+    public function edit(User $user)
+    {
+        return view('admin.edit', compact('user'));
     }
 }
