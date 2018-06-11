@@ -6,7 +6,7 @@ use App\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
-class CompanyController extends Controller
+class AdminsController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -15,7 +15,7 @@ class CompanyController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth:admin');
     }
 
     /**
@@ -25,7 +25,12 @@ class CompanyController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $user = User::all();
+        return view('admin', compact('user'));
     }
 
+    public function show(User $user)
+    {
+        return view('admin.show', compact('user'));
+    }
 }

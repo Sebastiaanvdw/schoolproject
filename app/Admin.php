@@ -7,12 +7,12 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Spatie\Permission\Traits\HasRoles;
 
 
-class Company extends Authenticatable
+class Admin extends Authenticatable
 {
     use Notifiable;
     use HasRoles;
 
-    protected $guard = 'company';
+    protected $guard = 'admin';
     /**
      * The attributes that are mass assignable.
      *

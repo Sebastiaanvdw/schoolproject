@@ -39,7 +39,18 @@
                             </div>
                         </div>
 
+                        <div class="form-group row">
+                            <label class="col-md-4 col-form-label text-md-right">Company</label>
 
+                            <div class="col-md-6">
+                                <label for="company" class="radio-inline">Yes</label>
+                                <input type="radio" id="company" checked="checked" name="company" value="1">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="company" class="radio-inline">No</label>
+                                <input type="radio"  id="company" name="company" value="0">
+                            </div>
+                        </div>
 
                         <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>

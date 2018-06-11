@@ -18,6 +18,7 @@ return [
         'passwords' => 'users',
     ],
 
+
     /*
     |--------------------------------------------------------------------------
     | Authentication Guards
@@ -46,9 +47,14 @@ return [
             'provider' => 'users',
         ],
 
-        'company' => [
+        'admin' => [
             'driver' => 'session',
-            'provider' => 'company',
+            'provider' => 'admin',
+        ],
+
+        'admin-api' => [
+            'driver' => 'token',
+            'provider' => 'admins',
         ],
     ],
 
@@ -75,9 +81,9 @@ return [
             'model' => App\User::class,
         ],
 
-         'company' => [
-             'driver' => 'database',
-             'model' => App\Company::class,
+         'admin' => [
+             'driver' => 'eloquent',
+             'model' => App\Admin::class,
          ],
     ],
 
@@ -102,8 +108,8 @@ return [
             'table' => 'password_resets',
             'expire' => 60,
         ],
-        'company' => [
-            'provider' => 'company',
+        'admin' => [
+            'provider' => 'admin',
             'table' => 'password_resets',
             'expire' => 15,
         ],
