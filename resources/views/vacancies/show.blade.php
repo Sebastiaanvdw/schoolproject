@@ -7,7 +7,7 @@
                 <div class="card">
                     <div class="card-header">{{ $vacancy->title }}</div>
                     <div class="card-body">
-                        <p class="card-text"> {{ $vacancy->occupation }}</p>
+                        <p class="card-text"> {{$vacancy->occupation->occupationName}}</p>
                         <p class="card-text"> {{ $vacancy->description }}</p>
                     </div>
                 </div>

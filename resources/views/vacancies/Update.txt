@@ -8,3 +8,5 @@
 
         return redirect()->action('VacanciesController@index')->with('correct', 'Vacancy Updated');
     }
+
+    {{$vacancy->occupation->occupationName}}
