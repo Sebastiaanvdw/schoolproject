@@ -1,0 +1,31 @@
+@extends('layouts.app')
+@include('layouts.errors')
+
+@section('content')
+    <div class="jumbotron">
+        <div class="container">
+            <h1>Create a Second-Hand Ticket</h1>
+
+            {!! Form::open(['url' => 'secondhandtickets', 'method' => 'POST']) !!}
+            {!! Form::token() !!}
+            <div class="form-group">
+                {{FORM::label('name', 'Name')}}
+                {!! Form::text('name', '', ['class' => 'form-control']) !!}
+                {{FORM::label('begintime', 'Begin date and time')}}
+                {!! Form::dateTime('begintime', '', ['class' => 'form-control']) !!}
+                {{FORM::label('endtime', 'End date and time')}}
+                {!! Form::dateTime('name', \Carbon\Carbon::now(), ['class' => 'form-control']) !!}
+                {{FORM::label('age', 'Age')}}
+                {!! Form::number('age', '', ['class' => 'form-control']) !!}
+            </div>
+
+            <div class="form-group">
+                {!! Form::submit('Create', ['class' => 'form-control']) !!}
+            </div>
+            {!! Form::close() !!}
+            <div class="form-group">
+                <a href="{{ url('secondhandtickets') }}">Back</a>
+            </div>
+        </div>
+    </div>
+@endsection
