@@ -9,14 +9,14 @@
             {!! Form::open(['url' => 'secondhandtickets/'.$secondhandticket->id, 'method' => 'PATCH']) !!}
             {!! Form::token() !!}
             <div class="form-group">
-                {!! Form::label('name', 'Name:') !!}
+                {!! Form::label('name', 'Ticket name:') !!}
                 {!! Form::text('name', $secondhandticket->name, ['class' => 'form-control']) !!}
                 {!! Form::label('begintime', 'Begin date and time:') !!}
                 {!! Form::dateTime('begintime', $secondhandticket->begintime, ['class' => 'form-control']) !!}
                 {!! Form::label('endtime', 'End date and time:') !!}
                 {!! Form::dateTime('endtime', $secondhandticket->endtime, ['class' => 'form-control']) !!}
-                {!! Form::label('age', 'Age:') !!}
-                {!! Form::textarea('age', $secondhandticket->age, ['class' => 'form-control']) !!}
+                {!! Form::label('age', 'Age restriction:') !!}
+                {!! Form::text('age', $secondhandticket->age, ['class' => 'form-control']) !!}
             </div>
 
             <div class="form-group">
