@@ -3,30 +3,30 @@
 @section('content')
     <div class="jumbotron">
         <div class="container">
-            {!! Form::open(['url' => 'event', 'method' => 'POST']) !!}
+            {!! Form::open(['url' => 'event/'.$event->id, 'method' => 'PATCH']) !!}
             {!! Form::token() !!}
             <div class="form-group">
                 {{FORM::label('name', 'Name')}}
-                {!! Form::text('name', '', ['class' => 'form-control']) !!}
+                {!! Form::text('name', $event->name, ['class' => 'form-control']) !!}
 
                 {{FORM::label('location', 'Location')}}
-                {!! Form::text('location', '', ['class' => 'form-control']) !!}
+                {!! Form::text('location', $event->location, ['class' => 'form-control']) !!}
 
                 {{FORM::label('date', 'Date')}}
-                {!! Form::date('date', '', ['class' => 'form-control']) !!}
+                {!! Form::date('date', $event->date, ['class' => 'form-control']) !!}
 
                 {{FORM::label('starttime', 'Start time')}}
-                {!! Form::text('starttime', '', ['class' => 'form-control']) !!}
+                {!! Form::text('starttime', $event->starttime, ['class' => 'form-control']) !!}
 
                 {{FORM::label('endtime', 'End time')}}
-                {!! Form::text('endtime', '', ['class' => 'form-control']) !!}
+                {!! Form::text('endtime', $event->endtime, ['class' => 'form-control']) !!}
 
                 {{FORM::label('agerestriction', 'Age restriction')}}
-                {!! Form::number('agerestriction', '', ['class' => 'form-control']) !!}
+                {!! Form::number('agerestriction', $event->agerestriction, ['class' => 'form-control']) !!}
             </div>
 
             <div class="form-group">
-                {!! Form::submit('Create', ['class' => 'form-control']) !!}
+                {!! Form::submit('Save', ['class' => 'form-control']) !!}
             </div>
             {!! Form::close() !!}
             <div class="form-group">

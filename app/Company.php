@@ -3,11 +3,11 @@
 namespace App;
 
 use Illuminate\Notifications\Notifiable;
-use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Foundation\Auth\user as Authenticatable;
 use Spatie\Permission\Traits\HasRoles;
 
 
-class User extends Authenticatable
+class Company extends Authenticatable
 {
     use Notifiable;
     use HasRoles;
