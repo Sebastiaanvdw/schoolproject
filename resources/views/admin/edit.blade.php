@@ -18,6 +18,10 @@
                             {{ Form::label('email', 'Email')}}
                             {!! Form::text('email', $user->email, ['class' => 'form-control']) !!}
 
+                            {{ Form::label('verified', 'Verified')}}<br>
+                            <label>{!! Form::radio('verified', 1, $user->verified, ['class' => 'form-control']) !!} Yes</label><br>
+                            <label>{!! Form::radio('verified', 0, !$user->verified, ['class' => 'form-control']) !!} No</label>
+
                         </div>
 
                         <div class="form-group">

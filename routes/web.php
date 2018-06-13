@@ -7,15 +7,15 @@ Route::get('/', function() { return view ('welcome');});
 Route::resource('/home', 'HomeController');
 
 /*Admin*/
+Route::prefix('admin')->group(function() {
+    Route::get('/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
+    Route::post('/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
+    Route::get('logout/', 'Auth\AdminLoginController@logout')->name('admin.logout');
+    Route::get('/', 'AdminsController@index')->name('admin.index');
+//    Route::get('/', 'AdminsController@show')->name('admin.show');
+});
 Route::resource('/admin', 'AdminsController');
-//Route::prefix('admin')->group(function() {
-//    Route::get('/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
-//    Route::post('/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
-//    Route::get('logout/', 'Auth\AdminLoginController@logout')->name('admin.logout');
-//    Route::get('/', 'AdminsController@index')->name('admin.index');
-////    Route::get('/', 'AdminsController@show')->name('admin.show');
-//});
-
+Route::model('admin', \App\User::class);
 /*Vacancies*/
 Route::resource('/vacancies', 'VacanciesController');
 

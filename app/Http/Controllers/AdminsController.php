@@ -13,10 +13,10 @@ class AdminsController extends Controller
      *
      * @return void
      */
-//    public function __construct()
-//    {
-//        $this->middleware('auth:admin');
-//    }
+    public function __construct()
+    {
+        $this->middleware('auth:admin');
+    }
 
     /**
      * Show the application dashboard.
@@ -37,5 +37,15 @@ class AdminsController extends Controller
     public function edit(User $user)
     {
         return view('admin.edit', compact('user'));
+    }
+
+    public function update(Request $request, User $user)
+    {
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->verified =$request->verified;
+        $user->save();
+
+        return redirect()->route('admin.index', $user);
     }
 }
