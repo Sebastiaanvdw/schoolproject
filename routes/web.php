@@ -23,8 +23,9 @@ Route::resource('/vacancies', 'VacanciesController');
 Route::resource('/advertisements', 'AdvertisementsController');
 
 /*Tickets*/
-//Route::resource('/ticket', 'TicketController');
-
+Route::resource('/tickets', 'TicketsController');
+/*Second-Hand Tickets*/
+Route::resource('/secondhandtickets', 'SecondHandTicketsController');
 /*Events*/
 Route::resource('/event', 'EventController');
 
