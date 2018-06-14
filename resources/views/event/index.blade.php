@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@include('layouts.errors')
 
 @section('content')
     <div class="container">
@@ -22,7 +23,7 @@
     </tr>
     @endforeach
     </table>
-        @role('user')
+        @role('company')
         <a href="event/create">
             {{ Form::submit('Create', ['class' => 'btn btn-primary']) }}
         </a>

@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>Clickets</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
@@ -86,6 +86,8 @@
                     <a href="{{route('event.index')}}">Events</a>
                     <a href="{{route('vacancies.index')}}">Vacancies</a>
                     <a href="{{route('advertisements.index')}}">Advertisements</a>
+                    <a href="{{route('tickets.index')}}">Tickets</a>
+                    <a href="{{route('secondhandtickets.index')}}">Second-Hand Tickets</a>
                 </div>
             </div>
         </div>
