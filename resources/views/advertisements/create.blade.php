@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @include('layouts.errors')
 
-@section ('content')
+@section('content')
     <div class="jumbotron">
         <div class="container">
         <h1>Create a advertisement</h1>

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Event;
+use App\Http\Requests\StoreEventPost;
+use App\Http\Requests\UpdateEventPost;
 use Illuminate\Http\Request;
 
 class EventController extends Controller
@@ -35,7 +37,7 @@ class EventController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreEventPost $request)
     {
         $event = new Event();
         $event->name =              request('name');
@@ -78,7 +80,7 @@ class EventController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Event $event)
+    public function update(UpdateEventPost $request, Event $event)
     {
         $event->name =                  $request->name;
         $event->date =                  $request->date;

@@ -1,27 +1,21 @@
 @extends('layouts.app')
+@include('layouts.errors')
 
 @section('content')
     <div class="jumbotron">
         <div class="container">
-            {!! Form::open(['url' => 'create', 'method' => 'POST']) !!}
+            <h1>Create a Second-Hand Ticket</h1>
+
+            {!! Form::open(['url' => 'secondhandtickets', 'method' => 'POST']) !!}
             {!! Form::token() !!}
             <div class="form-group">
-                {{FORM::label('id', 'Id')}}
-                {!! Form::text('id', '', ['class' => 'form-control']) !!}
-
-                {{FORM::label('name', 'Name')}}
+                {{FORM::label('name', 'Ticket name:')}}
                 {!! Form::text('name', '', ['class' => 'form-control']) !!}
-
-                {{FORM::label('date', 'Date')}}
-                {!! Form::date('date', '', ['class' => 'form-control']) !!}
-
-                {{FORM::label('starttime', 'Start Time')}}
-                {!! Form::dateTime('starttime', '', ['class' => 'form-control']) !!}
-
-                {{FORM::label('endtime', 'End Time')}}
+                {{FORM::label('begintime', 'Begin date and time:')}}
+                {!! Form::dateTime('begintime', '', ['class' => 'form-control']) !!}
+                {{FORM::label('endtime', 'End date and time:')}}
                 {!! Form::dateTime('endtime', '', ['class' => 'form-control']) !!}
-
-                {{FORM::label('age', 'Age ')}}
+                {{FORM::label('age', 'Age restriction:')}}
                 {!! Form::number('age', '', ['class' => 'form-control']) !!}
             </div>
 
@@ -29,6 +23,9 @@
                 {!! Form::submit('Create', ['class' => 'form-control']) !!}
             </div>
             {!! Form::close() !!}
+            <div class="form-group">
+                <a href="{{ url('secondhandtickets') }}">Back</a>
+            </div>
         </div>
     </div>
 @endsection
