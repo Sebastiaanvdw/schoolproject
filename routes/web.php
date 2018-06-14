@@ -14,6 +14,7 @@ Route::prefix('admin')->group(function() {
     Route::get('/', 'AdminsController@index')->name('admin.index');
 //    Route::get('/', 'AdminsController@show')->name('admin.show');
 });
+
 Route::resource('/admin', 'AdminsController');
 Route::model('admin', \App\User::class);
 /*Vacancies*/
