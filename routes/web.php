@@ -18,6 +18,7 @@ Route::prefix('admin')->group(function() {
 Route::resource('/admin', 'AdminsController');
 Route::model('admin', \App\User::class);
 /*Vacancies*/
+Route::post('/vacancies/search', 'VacanciesController@postSearch')->name('vacancies.search');
 Route::resource('/vacancies', 'VacanciesController');
 
 /*Advertisements*/
