@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreVacanciesPost;
 use App\Http\Requests\UpdateVacanciesPost;
 use App\Occupation;
-use Illuminate\Http\Requests;
+use Illuminate\Http\Request;
 
 use App\vacancy;
 
@@ -14,12 +14,6 @@ class VacanciesController extends Controller
     public function index()
     {
         $vacancies = vacancy::orderBy('created_at', 'asc')->get();
-
-        /*$vacancy = DB::table('vacancies')
-            ->join('occupations', 'vacancies.occupationId', '=', 'occupations.id')
-            ->select('vacancies.*', 'occupations.title')
-            ->get();*/
-
         return view('vacancies.index', compact('vacancies'));
     }
 
@@ -78,4 +72,27 @@ class VacanciesController extends Controller
 
         return redirect()->action('VacanciesController@index');
     }
+
+    public function postSearch(Request $request)
+    {
+        if($request->has('query')) {
+            $vacancies = vacancy::join('occupations', 'occupation_id', '=', 'occupations.id')
+                ->where('title', 'LIKE', '%' . $request->get('query') .  '%')
+                ->Orwhere('occupations.occupationName', 'LIKE', '%' . $request->get('query') .  '%')
+                ->get();
+            return view('vacancies.searchresults', compact('vacancies'));
+        } else {
+            return abort(400);
+        }
+    }
+
+//    public function postSearch(Request $request)
+//    {
+//        if($request->has('query')) {
+//            $vacancies = vacancy::join('')where('title', 'LIKE', '%' . $request->get('query') .  '%')->get();
+//            return view('vacancies.searchresults', compact('vacancies'));
+//        } else {
+//            return abort(400);
+//        }
+//    }
 }
