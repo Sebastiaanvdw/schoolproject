@@ -16,13 +16,13 @@
                             </a>
                         </td>
                         <td>{{$advertisement->description}}</td>
-                        <td>@role('user')
+                        <td>@role('company')
                             {{ Form::open(['method' => 'DELETE', 'route' => ['advertisements.destroy', $advertisement->id]]) }}
                             {{ Form::submit('Delete', ['class' => 'btn btn-danger']) }}
                             {{ Form::close() }}
                             @endrole
                         </td>
-                        <td>@role('user')
+                        <td>@role('company')
                             {{ Form::open(['method' => 'GET', 'route' => ['advertisements.edit', $advertisement->id]]) }}
                             {{ Form::submit('Edit', ['class' => 'btn btn-primary']) }}
                             {{ Form::close() }}
@@ -31,7 +31,7 @@
                     </tr>
                 @endforeach
             </table>
-            @role('user')
+            @role('company')
             <a href="advertisements/create">
                 {{ Form::submit('Create', ['class' => 'btn btn-primary']) }}
             </a>
