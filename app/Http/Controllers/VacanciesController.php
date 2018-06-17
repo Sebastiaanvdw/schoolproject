@@ -13,7 +13,7 @@ class VacanciesController extends Controller
 {
     public function index()
     {
-        $vacancies = vacancy::orderBy('created_at', 'asc')->get();
+        $vacancies = vacancy::orderBy('created_at', 'desc')->get();
         return view('vacancies.index', compact('vacancies'));
     }
 
@@ -52,7 +52,7 @@ class VacanciesController extends Controller
             $occupations[$occupation->id] = $occupation->occupationName;
         }
 
-        return view('vacancies.edit',  compact('vacancy', 'occupations'));
+        return view('vacancies.edit',  compact('vacancy','occupations'));
     }
 
     public function update(UpdateVacanciesPost $request, vacancy $vacancy)

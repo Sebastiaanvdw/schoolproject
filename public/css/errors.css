@@ -1,0 +1,15 @@
+/*errors.sass
+ * Version: 1.1
+ * Made by: Tim Minderman */
+.errors {
+  color: white;
+  border: 2px solid red;
+  background-color: red;
+  width: 50%;
+  border-radius: 25px;
+  margin-top: 10px;
+  margin-left: 15px;
+  font-size: 20px;
+  text-align: center; }
+
+/*# sourceMappingURL=errors.css.map */
