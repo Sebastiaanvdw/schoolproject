@@ -49,11 +49,3 @@ Route::group(['prefix' => 'companies'], function() {
     Route::get('show/{id}', 'CompanyController@show');
     Route::delete('delete/{id}', 'CompanyController@destroy');
 });
-
-/*Route::group(['prefix' => 'posts'], function() {
-    Route::get('/', 'PostController@index');
-    Route::match(['get', 'post'], 'create', 'PostController@create');
-    Route::match(['get', 'put'], 'update/{id}', 'PostController@update');
-    Route::get('show/{id}', 'PostController@show');
-    Route::delete('delete/{id}', 'PostController@destroy');
-});*/
