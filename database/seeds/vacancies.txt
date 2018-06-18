@@ -1,17 +1,4 @@
-<?php
-
-use Illuminate\Database\Seeder;
-
-class VacanciesTableSeeder extends Seeder
-{
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
-    public function run()
-    {
-        factory(\App\Vacancy::class, 1)->create(array(
+ factory(\App\Vacancy::class, 1)->create(array(
             'title' => 'Wij zijn opzoek naar jou!',
             'description' => 'Heb jij zin om bij ons te komen werken, dan is deze vacature voor jou!'
         ));
@@ -32,6 +19,3 @@ class VacanciesTableSeeder extends Seeder
             'description' => 'Vergroot ons team, werk nu met ons mee!'
         ));
         // factory(\App\Occupations::class, 0)->create();
-    }
-
-}

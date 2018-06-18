@@ -1,19 +1,22 @@
 @extends('layouts.app')
-@include('layouts.errors')
 
 @section('content')
-    <div class="container">
+    <div class="main_content">
         <form action="{{ route('vacancies.search') }}" method="POST" class="ajaxSearch">
-            <input type="search" name="query" placeholder="Type something to search" autocomplete="off">
-            <input type="submit" value="Search">
+            <input type="search" name="query" placeholder="Type something to search" autocomplete="off" class="search_bar">
+            <input type="submit" value="Search" class="search_button">
         </form>
-
-        <div id="results"></div>
-        @role('user')
-        <a href="vacancies/create">
-            {{ Form::submit('Create', ['class' => 'btn btn-primary']) }}
+        <div id="results" class="grid-container">
+        </div>
+        @include('layouts.errors')
+        @role('company')
+        <a href="vacancies/create" class="create_field">
+            {{ Form::submit('Create', ['class' => 'create_button']) }}
         </a>
         @endrole
+    </div>
+    <div class="back">
+        <a href="{{ url('/') }}" class="back_button">Back</a>
     </div>
 
 @endsection

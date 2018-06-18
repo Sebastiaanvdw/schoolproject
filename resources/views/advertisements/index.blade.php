@@ -1,41 +1,48 @@
 @extends('layouts.app')
-@include('layouts.errors')
 
 @section('content')
-        <div class="container">
-            <table class="table">
-                <tr>
+        <div class="main_content">
+            <div class="grid-container">
+            <table>
+                <tr class="table_header">
                     <th>Title:</th>
                     <th>Description:</th>
                 </tr>
                 @foreach($advertisements as $advertisement)
                     <tr>
+                        <div class="table_info">
                         <td>
                             <a href="advertisements/{{ $advertisement->id }}">
                                 {{$advertisement->title}}
                             </a>
                         </td>
                         <td>{{$advertisement->description}}</td>
-                        <td>@role('user')
+                        </div>
+
+                        <td>@role('company')
                             {{ Form::open(['method' => 'DELETE', 'route' => ['advertisements.destroy', $advertisement->id]]) }}
-                            {{ Form::submit('Delete', ['class' => 'btn btn-danger']) }}
+                            {{ Form::submit('Delete', ['class' => 'delete_button']) }}
                             {{ Form::close() }}
                             @endrole
                         </td>
-                        <td>@role('user')
+                        <td>@role('company')
                             {{ Form::open(['method' => 'GET', 'route' => ['advertisements.edit', $advertisement->id]]) }}
-                            {{ Form::submit('Edit', ['class' => 'btn btn-primary']) }}
+                            {{ Form::submit('Edit', ['class' => 'edit_button']) }}
                             {{ Form::close() }}
                             @endrole
                         </td>
                     </tr>
                 @endforeach
             </table>
-            @role('user')
+                @include('layouts.errors')
+            </div>
+            @role('company')
             <a href="advertisements/create">
-                {{ Form::submit('Create', ['class' => 'btn btn-primary']) }}
+                {{ Form::submit('Create', ['class' => 'create_button']) }}
             </a>
             @endrole
         </div>
-
+        <div class="back">
+            <a href="{{ url('/') }}" class="back_button">Back</a>
+        </div>
 @endsection
