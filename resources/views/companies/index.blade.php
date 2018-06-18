@@ -2,7 +2,7 @@
 
     <div class="wrapper">
         <div class="col-sm-7">
-            <h3>Placeholder</h3>
+            <h3>Companies</h3>
         </div>
         <div class="col-sm-5">
             <div class="pull-right">
