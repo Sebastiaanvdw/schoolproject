@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>Clickets</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
@@ -69,7 +69,7 @@
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
-                        <a href="{{ url('/home') }}">Home</a>
+                        <a href="{{ url('/home') }}">User</a>
                     @else
                         <a href="{{ route('login') }}">Login</a>
                         <a href="{{ route('register') }}">Register</a>
@@ -86,8 +86,8 @@
                     <a href="{{route('event.index')}}">Events</a>
                     <a href="{{route('vacancies.index')}}">Vacancies</a>
                     <a href="{{route('advertisements.index')}}">Advertisements</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+                    <a href="{{route('tickets.index')}}">Tickets</a>
+                    <a href="{{route('secondhandtickets.index')}}">Second-Hand Tickets</a>
                 </div>
             </div>
         </div>
