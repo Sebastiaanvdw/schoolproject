@@ -1,15 +1,18 @@
 /*index.sass
-  Version: 1.1
+  Version: 1.3
   Made by: Tim Minderman*/
 
 $grid: grid
 $header-font: 25px
 $td-size: 15px
+
+/*Color variables*/
 $background-color: #e6e2d3
 $green: #4CAF50
 $red: #f44336
 $blue: #008CBA
 $black: #555555
+$brown: #b9936c
 
 .grid-container
   display: $grid
@@ -72,7 +75,7 @@ tr:nth-child(even)
   background-color: #c4b7a6
 
 th
-  background-color: #b9936c
+  background-color: $brown
   color: white
 
 .delete_table, .edit_table
@@ -206,15 +209,13 @@ th
 
 .edit_container label
     display: block
-    margin: 5px 0px 10px 0px
     font-size: 20px
 
 .edit_header
     display: flex
     font-weight: bold
     font-style: italic
-    border-bottom: 2px solid #ddd
-    margin-bottom: 20px
+    border-bottom: 2px solid $brown
     margin-left: 15px
     font-size: $header-font
     padding-bottom: 3px
@@ -223,10 +224,57 @@ th
 
 .form_description, .form_occupation, .form_title
     width: 50%
-    padding: 5px
+    margin: 8px 0
+    box-sizing: border-box
+
+    &:focus
+      border: 1px solid $blue
 
 .form_occupation, .form_title
-    height: 30px
+    padding: 10px 10px
 
 .form_description
-    height: 100px
+    padding: 10px 10px
+
+/*Flexbox show*/
+.show_header_row
+  background-color: $brown
+
+.show_header
+    display: flex
+    align-items: center
+    justify-content: center
+    font-style: italic
+
+.flex-outer
+  list-style-type: none
+  max-width: 800px
+  margin: 50px auto
+
+.flex-outer li
+  display: flex
+  flex-wrap: wrap
+  align-items: center
+
+.flex-outer > li:not(:last-child)
+  margin-bottom: 20px
+
+
+.flex-outer li label
+  padding: 8px
+  font-size: 20px
+  font-weight: bold
+  text-transform: uppercase
+
+.flex-outer li p
+  font-size: 15px
+
+.flex-outer > li > label,
+.flex-outer li p
+  flex: 1 0 120px
+
+
+.flex-outer > li > label + *
+  flex: 1 0 100px
+
+
