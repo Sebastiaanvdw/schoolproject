@@ -27,6 +27,7 @@ Route::resource('/advertisements', 'AdvertisementsController');
 
 /*Events*/
 Route::resource('/event', 'EventController');
+Route::get('/event/create', 'EventController@create')->middleware('role:verified-company');
 
 /*Auth*/
 Auth::routes();

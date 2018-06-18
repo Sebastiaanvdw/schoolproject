@@ -25,8 +25,15 @@ class RolesAndPermissionsSeeder extends Seeder
         $role = Role::create(['name' => 'company']);
         $role->givePermissionTo(['create events', 'edit events', 'delete events']);
 
+        $role = Role::create(['name' => 'verified-company']);
+        $role->givePermissionTo(['create events', 'edit events', 'delete events']);
+
+        $role = Role::create(['name' => 'admin']);
+        $role->givePermissionTo(['create events', 'edit events', 'delete events']);
+
         \App\User::find(1)->assignRole('user');
         \App\User::find(2)->assignRole('company');
+        \App\User::find(3)->assignRole('verified-company');
 
     }
 }
