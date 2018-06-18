@@ -1,5 +1,5 @@
 /*index.sass
-  Version: 1.3
+  Version: 1.4
   Made by: Tim Minderman*/
 
 $grid: grid
@@ -13,6 +13,23 @@ $red: #f44336
 $blue: #008CBA
 $black: #555555
 $brown: #b9936c
+
+/*Responsive*/
+$break-small: 360px
+$break-medium: 724px
+
+@mixin respond-to($media)
+  @if $media == handhelds
+    @media only screen and (max-width: $break-small)
+    @content
+
+  @else if $media == mid-screens
+    @media only screen and (min-width: $break-small + 1) and (max-width: $break-medium - 1)
+        @content
+
+  @else if $media == medium-screens
+    @media only screen and (min-width: $break-medium)
+      @content
 
 .grid-container
   display: $grid
@@ -70,7 +87,6 @@ th, td
   text-align: left
   padding: 8px
 
-
 tr:nth-child(even)
   background-color: #c4b7a6
 
@@ -87,6 +103,15 @@ th
 
 .edit_table
   width: 55px
+
+/*Responsive table*/
+td
+  @include respond-to(handhelds)
+    font-size: 10px
+  @include respond-to(mid-screens)
+    font-size: 15px
+  @include respond-to(medium-screens)
+    font-size: 17px
 
 /*Buttons*/
 .delete_button
@@ -201,7 +226,7 @@ th
     transition: width 0.4s ease-in-out
 
     &:focus
-      width: 15%
+      width: 18%
 
 /*Edit and create form*/
 .edit_container

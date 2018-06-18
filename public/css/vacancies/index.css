@@ -1,7 +1,8 @@
 /*index.sass
- * Version: 1.3
+ * Version: 1.4
  * Made by: Tim Minderman */
 /*Color variables */
+/*Responsive */
 .grid-container {
   display: grid;
   margin-top: 25px;
@@ -72,6 +73,16 @@ th {
 
 .edit_table {
   width: 55px; }
+
+/*Responsive table */
+td {
+  font-size: 10px; }
+  @media only screen and (min-width: 361px) and (max-width: 723px) {
+    td {
+      font-size: 15px; } }
+  @media only screen and (min-width: 724px) {
+    td {
+      font-size: 17px; } }
 
 /*Buttons */
 .delete_button {
@@ -179,7 +190,7 @@ th {
   -webkit-transition: width 0.4s ease-in-out;
   transition: width 0.4s ease-in-out; }
   .search_bar:focus {
-    width: 15%; }
+    width: 18%; }
 
 /*Edit and create form */
 .edit_container {

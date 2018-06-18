@@ -12,7 +12,7 @@ class AdvertisementsController extends Controller
 {
     public function index()
     {
-        $advertisements = advertisement::orderBy('created_at', 'desc')->get();
+        $advertisements = advertisement::orderBy('created_at', 'asc')->get();
 
         return view('advertisements.index', compact('advertisements'));
     }

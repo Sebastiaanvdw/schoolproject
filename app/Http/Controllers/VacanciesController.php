@@ -13,7 +13,7 @@ class VacanciesController extends Controller
 {
     public function index()
     {
-        $vacancies = vacancy::orderBy('created_at', 'desc')->get();
+        $vacancies = vacancy::orderBy('created_at', 'asc')->get();
         return view('vacancies.index', compact('vacancies'));
     }
 
