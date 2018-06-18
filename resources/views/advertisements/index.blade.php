@@ -19,13 +19,13 @@
                         <td>{{$advertisement->description}}</td>
                         </div>
 
-                        <td>@role('company')
+                        <td class="delete_table">@role('company')
                             {{ Form::open(['method' => 'DELETE', 'route' => ['advertisements.destroy', $advertisement->id]]) }}
                             {{ Form::submit('Delete', ['class' => 'delete_button']) }}
                             {{ Form::close() }}
                             @endrole
                         </td>
-                        <td>@role('company')
+                        <td class="edit_table">@role('company')
                             {{ Form::open(['method' => 'GET', 'route' => ['advertisements.edit', $advertisement->id]]) }}
                             {{ Form::submit('Edit', ['class' => 'edit_button']) }}
                             {{ Form::close() }}
