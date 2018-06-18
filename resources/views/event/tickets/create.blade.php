@@ -1,14 +1,14 @@
-@extends('layouts.app')
+@extends('layouts.layout')
 @include('layouts.errors')
 
 @section('content')
     <div class="jumbotron">
-        <div class="container">
-            <h1>Create a Ticket</h1>
+        <div class="layout-container">
 
             {!! Form::open(['url' => 'tickets', 'method' => 'POST']) !!}
             {!! Form::token() !!}
             <div class="form-group">
+                <h1>Create a Ticket</h1>
                 {{FORM::label('name', 'Ticket name')}}
                 {!! Form::text('name', '', ['class' => 'form-control']) !!}
                 {{FORM::label('begintime', 'Begin date and time')}}
@@ -28,4 +28,5 @@
             </div>
         </div>
     </div>
+
 @endsection

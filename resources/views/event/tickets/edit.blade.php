@@ -1,9 +1,9 @@
-@extends('layouts.app')
+@extends('layouts.layout')
 @include('layouts.errors')
 
 @section ('content')
     <div class="jumbotron">
-        <div class="container">
+        <div class="layout-container">
             <h1>Edit a Ticket</h1>
 
             {!! Form::open(['url' => 'tickets/'.$ticket->id, 'method' => 'PATCH']) !!}

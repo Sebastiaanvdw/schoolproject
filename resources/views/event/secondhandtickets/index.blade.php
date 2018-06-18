@@ -1,8 +1,8 @@
-@extends('layouts.app')
+@extends('layouts.layout')
 @include('layouts.errors')
 
 @section('content')
-    <div class="container">
+    <div class="layout-container">
         <table class="table">
             <tr>
                 <th>Ticket Name:</th>

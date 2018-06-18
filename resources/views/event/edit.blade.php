@@ -1,8 +1,9 @@
-@extends('layouts.app')
+@extends('layouts.layout')
+@include('layouts.errors')
 
 @section('content')
     <div class="jumbotron">
-        <div class="container">
+        <div class="layout-container">
             {!! Form::open(['url' => 'event/'.$event->id, 'method' => 'PATCH']) !!}
             {!! Form::token() !!}
             <div class="form-group">
