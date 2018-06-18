@@ -1,4 +1,4 @@
-@extends('posts.master')
+@extends('companies.master')
 
 @section('css')
     <style>
@@ -24,7 +24,7 @@
 @endsection
 @section('content')
     <div id="content">
-        @include('posts.index')
+        @include('companies.index')
     </div>
     <div class="loading">
         <i class="fa fa-refresh fa-spin fa-2x fa-tw"></i>

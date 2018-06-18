@@ -1,9 +1,9 @@
 <div class="container">
     <div class="col-md-8 offset-md-2">
-        <h1>{{isset($post)?'Edit':'New'}} Post</h1>
+        <h1>{{isset($company)?'Edit':'New'}} Company</h1>
         <hr/>
-        @if(isset($post))
-            {!! Form::model($post,['method'=>'put','id'=>'frm']) !!}
+        @if(isset($company))
+            {!! Form::model($company,['method'=>'put','id'=>'frm']) !!}
         @else
             {!! Form::open(['id'=>'frm']) !!}
         @endif
@@ -25,7 +25,7 @@
         <div class="form-group row">
             <div class="col-md-3 col-lg-2"></div>
             <div class="col-md-4">
-                <a href="javascript:ajaxLoad('{{url('posts')}}')" class="btn btn-danger btn-xs">
+                <a href="javascript:ajaxLoad('{{url('companies')}}')" class="btn btn-danger btn-xs">
                     Back</a>
                 {!! Form::button("Save",["type" => "submit","class"=>"btn btn-primary btn-xs"])!!}
             </div>
