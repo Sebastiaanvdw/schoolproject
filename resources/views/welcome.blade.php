@@ -88,7 +88,7 @@
                     <a href="{{route('advertisements.index')}}">Advertisements</a>
                     <a href="{{route('tickets.index')}}">Tickets</a>
                     <a href="{{route('secondhandtickets.index')}}">Second-Hand Tickets</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+                    <a href="https://github.com/TechniekCollegeRotterdam/Clickets">GitHub</a>
                 </div>
             </div>
         </div>
