@@ -21,6 +21,7 @@ Route::model('admin', \App\User::class);
 Route::post('/vacancies/search', 'VacanciesController@postSearch')->name('vacancies.search');
 Route::resource('/vacancies', 'VacanciesController');
 
+
 /*Advertisements*/
 Route::resource('/advertisements', 'AdvertisementsController');
 

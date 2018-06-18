@@ -79,6 +79,7 @@ class VacanciesController extends Controller
             $vacancies = vacancy::join('occupations', 'occupation_id', '=', 'occupations.id')
                 ->where('title', 'LIKE', '%' . $request->get('query') .  '%')
                 ->Orwhere('occupations.occupationName', 'LIKE', '%' . $request->get('query') .  '%')
+                ->select('vacancies.*')
                 ->get();
             return view('vacancies.searchresults', compact('vacancies'));
         } else {
