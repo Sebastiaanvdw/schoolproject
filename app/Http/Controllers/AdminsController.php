@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use App\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use App\Http\Requests\StoreAdminPost;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Foundation\Auth\RegistersUsers;
 
 class AdminsController extends Controller
 {
@@ -29,6 +33,35 @@ class AdminsController extends Controller
         return view('admin', compact('user'));
     }
 
+    public function create ()
+    {
+        return view('admin.create');
+    }
+
+    protected function store(StoreAdminPost $request)
+    {
+
+        $user = User::create([
+            'name' => $request['name'],
+            'email' => $request['email'],
+            'company' => $request['company'],
+            'verified' => $request['verified'],
+            'password' => Hash::make($request['password']),
+        ]);
+
+        if ($user['company'] && $user['verified'] == 1) {
+            $user->assignRole('verified-company');
+        }
+        elseif ($user['company'] == 1 && $user['verified'] == 0){
+            $user->assignRole('company');
+        }
+        else {
+            $user->assignRole('user');
+        }
+
+        return redirect()->route('admin.index', $user);
+    }
+
     public function show(User $user)
     {
         return view('admin.show', compact('user'));
@@ -46,6 +79,23 @@ class AdminsController extends Controller
         $user->verified =$request->verified;
         $user->save();
 
+        if ($user['company'] && $user['verified'] == 1) {
+            $user->syncRoles('verified-company');
+        }
+        elseif ($user['company'] == 1 && $user['verified'] == 0){
+            $user->syncRoles('company');
+        }
+        else {
+            $user->syncRoles('user');
+        }
+
         return redirect()->route('admin.index', $user);
+    }
+
+    public function destroy(User $user)
+    {
+        $user->delete();
+
+        return redirect()->route('admin.index');
     }
 }

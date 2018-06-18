@@ -1,13 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-    <script>
-        $(document).ready(function() {
-            $('#verified').click(function(){
-                alert('test')
-            });
-        });
-    </script>
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
@@ -20,6 +13,7 @@
                                 <th>Name</th>
                                 <th>Email</th>
                                 <th>Verified</th>
+                                <th>Company</th>
                             </tr>
                             @foreach($user as $users)
                                 <tr>
@@ -27,9 +21,9 @@
                                     <td>{{ $users->email }}</td>
                                     <td>
                                     @if($users->verified == 1)
-                                            <a><i onclick="" id="verified" class="far fa-check-circle fa-lg"></i></a>
+                                            <a><i id="verified" class="far fa-check-circle fa-lg"></i></a>
                                     @else
-                                            <a><i onclick="" id="verified" class="far fa-times-circle fa-lg"></i></a>
+                                            <a><i id="verified" class="far fa-times-circle fa-lg"></i></a>
                                     @endif
                                     </td>
                                     <td>
@@ -39,6 +33,10 @@
                                             <span class="far fa-times-circle fa-lg"></span>
                                         @endif
                                     </td>
+                                    <td>{{ Form::open(['method' => 'DELETE', 'route' => ['admin.destroy', $users->id]]) }}
+                                        {{ Form::submit('Delete', ['class' => 'btn btn-danger']) }}
+                                        {{ Form::close() }}
+                                    </td>
                                     <td>{{ Form::open(['method' => 'GET', 'route' => ['admin.edit', $users->id]]) }}
                                         {{ Form::submit('Edit', ['class' => 'btn btn-primary']) }}
                                         {{ Form::close() }}
@@ -46,7 +44,9 @@
                                 </tr>
                             @endforeach
                         </table>
-
+                        <a href="admin/create">
+                            {{ Form::submit('Create', ['class' => 'btn btn-primary']) }}
+                        </a>
                     </div>
                     </div>
                 </div>

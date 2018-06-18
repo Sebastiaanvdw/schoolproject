@@ -20,6 +20,15 @@ class UsersTableSeeder extends Seeder
         DB::table('users')->insert([
             'name' => 'company',
             'email' => 'company@gmail.com',
+            'company' => 1,
+            'password' => bcrypt('password'),
+        ]);
+
+        DB::table('users')->insert([
+            'name' => 'v-company',
+            'email' => 'v-company@gmail.com',
+            'company' => 1,
+            'verified' => 1,
             'password' => bcrypt('password'),
         ]);
     }

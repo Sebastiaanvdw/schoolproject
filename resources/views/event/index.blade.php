@@ -23,7 +23,7 @@
     </tr>
     @endforeach
     </table>
-        @role('company')
+        @role('verified-company')
         <a href="event/create">
             {{ Form::submit('Create', ['class' => 'btn btn-primary']) }}
         </a>

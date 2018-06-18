@@ -31,6 +31,7 @@ Route::resource('/tickets', 'TicketsController');
 Route::resource('/secondhandtickets', 'SecondHandTicketsController');
 /*Events*/
 Route::resource('/event', 'EventController');
+Route::get('/event/create', 'EventController@create')->middleware('role:verified-company');
 
 /*Auth*/
 Auth::routes();
