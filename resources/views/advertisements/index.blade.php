@@ -11,7 +11,7 @@
                 @foreach($advertisements as $advertisement)
                     <tr>
                         <div class="table_info">
-                        <td>
+                        <td class="table_title">
                             <a href="advertisements/{{ $advertisement->id }}">
                                 {{$advertisement->title}}
                             </a>
@@ -19,13 +19,13 @@
                         <td>{{$advertisement->description}}</td>
                         </div>
 
-                        <td>@role('company')
+                        <td>@role('verified-company')
                             {{ Form::open(['method' => 'DELETE', 'route' => ['advertisements.destroy', $advertisement->id]]) }}
                             {{ Form::submit('Delete', ['class' => 'delete_button']) }}
                             {{ Form::close() }}
                             @endrole
                         </td>
-                        <td>@role('company')
+                        <td>@role('verified-company')
                             {{ Form::open(['method' => 'GET', 'route' => ['advertisements.edit', $advertisement->id]]) }}
                             {{ Form::submit('Edit', ['class' => 'edit_button']) }}
                             {{ Form::close() }}
@@ -36,7 +36,7 @@
             </table>
                 @include('layouts.errors')
             </div>
-            @role('company')
+            @role('verified-company')
             <a href="advertisements/create">
                 {{ Form::submit('Create', ['class' => 'create_button']) }}
             </a>

@@ -1,5 +1,4 @@
 @extends('layouts.layout')
-@include('layouts.errors')
 
 @section('content')
     <div class="jumbotron">
@@ -26,7 +25,7 @@
                 {{FORM::label('agerestriction', 'Age restriction')}}
                 {!! Form::number('agerestriction', '', ['placeholder' => '0 = No age restriction', 'class' => 'form-control']) !!}
             </div>
-
+            @include('layouts.errors')
             <div class="form-group">
                 {!! Form::submit('Create', ['class' => 'form-control']) !!}
             </div>

@@ -7,7 +7,7 @@
     @foreach($vacancies as $vacancy)
         <tr>
             <div class="table_info">
-            <td>
+            <td class="table_title">
                 <a href="vacancies/{{ $vacancy->id }}">
                     {{$vacancy->title}}
                 </a>
@@ -18,13 +18,13 @@
             <td>{{$vacancy->description}}</td>
             </div>
 
-            <td>@role('company')
+            <td>@role('verified-company')
                 {{ Form::open(['method' => 'DELETE', 'route' => ['vacancies.destroy', $vacancy->id]]) }}
                 {{ Form::submit('Delete', ['class' => 'delete_button']) }}
                 {{ Form::close() }}
                 @endrole
             </td>
-            <td>@role('company')
+            <td>@role('verified-company')
                 {{ Form::open(['method' => 'GET', 'route' => ['vacancies.edit', $vacancy->id]]) }}
                 {{ Form::submit('Edit', ['class' => 'edit_button']) }}
                 {{ Form::close() }}

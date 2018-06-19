@@ -21,6 +21,7 @@ class CreateEventsTable extends Migration
             $table->string('starttime');
             $table->string('endtime');
             $table->integer('agerestriction');
+            $table->integer('user_id');
             $table->timestamps();
         });
     }

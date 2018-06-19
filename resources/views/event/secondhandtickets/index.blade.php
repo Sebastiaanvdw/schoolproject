@@ -16,7 +16,7 @@
             </a>
         </div>
         <div class="form-group">
-            <a href="{{ url('http://localhost/Clickets/public/') }}">Back</a>
+            <a href="{{ url('/') }}">Back</a>
         </div>
     </div>
 
