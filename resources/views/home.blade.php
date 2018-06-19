@@ -1,7 +1,8 @@
-@extends('layouts.app')
+@extends('layouts.layout')
+@include('layouts.errors')
 
 @section('content')
-    <div class="container">
+    <div class="layout-container">
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
@@ -15,7 +16,7 @@
                         @endif
 
                         You are logged in!
-                        <br><a href="{{ URL::to('home/'.$userId = Auth::id(). '/edit') }}"><button class="btn btn-primary">Edit </button></a>
+                        <br><a href="{{ URL::to('home/'.$userId = Auth::id(). '/edit') }}"><button class="btn btn-edit">Edit </button></a>
                     </div>
                 </div>
             </div>
