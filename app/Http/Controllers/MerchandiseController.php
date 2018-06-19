@@ -71,7 +71,7 @@ class MerchandiseController extends Controller
     public function update(Request $request, $id)
     {
         if ($request->isMethod('get'))
-            return view('merchandises.form',['company' => Merchandise::find($id)]);
+            return view('merchandises.form',['merchandise' => Merchandise::find($id)]);
 
         $rules = [
             'title' => 'required',
