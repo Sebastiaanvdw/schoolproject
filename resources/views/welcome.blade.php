@@ -52,7 +52,7 @@
                 <div class="title m-b-md">
                     Clickets!
                 </div>
-                <h2>Click and it's done!</h2>
+                <h3>Click and it's done!</h3>
 
                 <div class="links">
                     <a href="{{route('event.index')}}">Events</a>

@@ -28,6 +28,6 @@ var ajaxSearch = function(form) {
     ).done(function (res) {
         $('#results').html(res);
     }).fail(function (res) {
-        alert('Failed search');
+        alert('Failed to search');
     });
 };

@@ -10,13 +10,15 @@
         <div id="results">
             Loading...
         </div>
+        @role('verified-company')
 <div class="container">
     <a href="tickets/create">
         {{ Form::submit('Create', ['class' => 'btn btn-create']) }}
     </a>
 </div>
+        @endrole
         <div class="form-group">
-            <a href="{{ url('http://localhost/Clickets/public/') }}">Back</a>
+            <a href="{{ url('/') }}">Back</a>
         </div>
     </div>
 

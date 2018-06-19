@@ -7,9 +7,10 @@
             <input type="submit" value="Search" class="search_button">
         </form>
         <div id="results" class="grid-container">
+
         </div>
         @include('layouts.errors')
-        @role('company')
+        @role('verified-company')
         <a href="vacancies/create" class="create_field">
             {{ Form::submit('Create', ['class' => 'create_button']) }}
         </a>

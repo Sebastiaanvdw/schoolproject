@@ -105,4 +105,16 @@ class EventController extends Controller
 
         return redirect()->route('event.index');
     }
+
+    public function postSearch(Request $request)
+    {
+        if($request->has('query')) {
+            $events = Event::where('name', 'LIKE', '%' . $request->get('query') .  '%')
+                ->Orwhere('location', 'LIKE', '%' . $request->get('query') .  '%')
+                ->get();
+            return view('event.searchresults', compact('events'));
+        } else {
+            return abort(400);
+        }
+    }
 }
