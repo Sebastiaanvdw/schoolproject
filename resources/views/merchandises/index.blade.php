@@ -28,7 +28,7 @@
         <tr>
 
             <th width="60px">No</th>
-            <th><a href="javascript:ajaxLoad('{{url('merchandises?field=title&sort='.(request()->session()->get('sort')=='asc'?'desc':'asc'))}}')">Company Title</a>
+            <th><a href="javascript:ajaxLoad('{{url('merchandises?field=title&sort='.(request()->session()->get('sort')=='asc'?'desc':'asc'))}}')">Merchandise Title</a>
                 {{request()->session()->get('field')=='title'?(request()->session()->get('sort')=='asc'?'':''):''}}
             </th>
 
@@ -54,7 +54,7 @@
             </th>
             <th width="160px" style="vertical-align: middle">
                 <a href="javascript:ajaxLoad('{{url('merchandises/create')}}')"
-                   class="btn btn-primary btn-xs"> <i class="fa fa-plus" aria-hidden="true"></i> New Company</a>
+                   class="btn btn-primary btn-xs"> <i class="fa fa-plus" aria-hidden="true"></i> New Merchandise</a>
             </th>
         </tr>
         </thead>
