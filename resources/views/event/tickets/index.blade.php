@@ -10,6 +10,7 @@
         <div id="results">
             Loading...
         </div>
+        @role('verified-company')
 <div class="container">
     <a href="tickets/create">
         {{ Form::submit('Create', ['class' => 'btn btn-create']) }}
