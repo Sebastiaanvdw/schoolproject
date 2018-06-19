@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreAdvertisementsPost;
 use App\Http\Requests\UpdateAdvertisementsPost;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 use App\advertisement;
 
@@ -27,6 +28,7 @@ class AdvertisementsController extends Controller
         $advertisement = new advertisement();
         $advertisement->title = request('title');
         $advertisement->description = request('description');
+        $advertisement->user_id =           Auth::user()->id;
         $advertisement->save();
 
         return redirect()->action('AdvertisementsController@index')->with('Succes', 'advertentie geplaatst.');

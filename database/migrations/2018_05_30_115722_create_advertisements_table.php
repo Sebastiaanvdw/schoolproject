@@ -17,6 +17,7 @@ class CreateAdvertisementsTable extends Migration
             $table->increments('id');
             $table->string('title');
             $table->text('description');
+            $table->integer('user_id');
             $table->timestamps();
         });
     }

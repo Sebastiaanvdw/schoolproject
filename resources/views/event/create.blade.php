@@ -1,11 +1,12 @@
-@extends('layouts.app')
+@extends('layouts.layout')
 
 @section('content')
     <div class="jumbotron">
-        <div class="container">
+        <div class="layout-container">
             {!! Form::open(['url' => 'event', 'method' => 'POST']) !!}
             {!! Form::token() !!}
             <div class="form-group">
+                <h1>Create an Event</h1>
                 {{FORM::label('name', 'Name')}}
                 {!! Form::text('name', '', ['class' => 'form-control']) !!}
 
@@ -22,9 +23,9 @@
                 {!! Form::text('endtime', '', ['class' => 'form-control']) !!}
 
                 {{FORM::label('agerestriction', 'Age restriction')}}
-                {!! Form::number('agerestriction', '', ['class' => 'form-control']) !!}
+                {!! Form::number('agerestriction', '', ['placeholder' => '0 = No age restriction', 'class' => 'form-control']) !!}
             </div>
-
+            @include('layouts.errors')
             <div class="form-group">
                 {!! Form::submit('Create', ['class' => 'form-control']) !!}
             </div>

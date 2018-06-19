@@ -1,5 +1,6 @@
 @if($errors->any())
-    <div class="alert alert-danger">
+    <div class="errors">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
         @foreach($errors->all() as $error)
             <p>{{ $error }}</p>
         @endforeach

@@ -1,11 +1,12 @@
-@extends('layouts.app')
+@extends('layouts.layout')
+@include('layouts.errors')
 
 @section('content')
-<div class="container">
+<div class="layout-container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
+                <div class="card-header"><h1>{{ __('Register') }}</h1></div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
@@ -39,7 +40,18 @@
                             </div>
                         </div>
 
+                        <div class="form-group row">
+                            <label class="col-md-4 col-form-label text-md-right">Company</label>
 
+                            <div class="col-md-6">
+                                <label for="company" class="radio-inline">Yes</label>
+                                <input type="radio" id="company" checked="checked" name="company" value="1">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="company" class="radio-inline">No</label>
+                                <input type="radio"  id="company" name="company" value="0">
+                            </div>
+                        </div>
 
                         <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>

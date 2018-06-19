@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Event;
+use App\Http\Requests\StoreEventPost;
+use App\Http\Requests\UpdateEventPost;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class EventController extends Controller
 {
@@ -35,7 +38,7 @@ class EventController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreEventPost $request)
     {
         $event = new Event();
         $event->name =              request('name');
@@ -44,6 +47,7 @@ class EventController extends Controller
         $event->starttime =         request('starttime');
         $event->endtime =           request('endtime');
         $event->agerestriction =    request('agerestriction');
+        $event->user_id =           Auth::user()->id;
         $event->save();
 
         return redirect()->route('event.store', $event);
@@ -78,7 +82,7 @@ class EventController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Event $event)
+    public function update(UpdateEventPost $request, Event $event)
     {
         $event->name =                  $request->name;
         $event->date =                  $request->date;
@@ -102,5 +106,17 @@ class EventController extends Controller
         $event->delete();
 
         return redirect()->route('event.index');
+    }
+
+    public function postSearch(Request $request)
+    {
+        if($request->has('query')) {
+            $events = Event::where('name', 'LIKE', '%' . $request->get('query') .  '%')
+                ->Orwhere('location', 'LIKE', '%' . $request->get('query') .  '%')
+                ->get();
+            return view('event.searchresults', compact('events'));
+        } else {
+            return abort(400);
+        }
     }
 }

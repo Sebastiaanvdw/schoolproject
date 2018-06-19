@@ -1,10 +1,25 @@
- public function update(UpdateVacanciesPost $request, vacancy $vacancy)
-    {
-        $validated = $request->validated();
+@extends('layouts.app')
 
-        $vacancy->title = $request['title'];
-        $vacancy->body = $request['body'];
-        $vacancy->save();
+@section('content')
+    <div class="">
+    <div class="show_container">
+    <table>
+        <tr class="table_header">
+            <th>Title:</th>
+            <th>Occupation:</th>
+            <th>Description:</th>
+        </tr>
+            <tr class="table_info">
+                <td>{{$vacancy->title}}</td>
 
-        return redirect()->action('VacanciesController@index')->with('correct', 'Vacancy Updated');
-    }
+                <td>{{$vacancy->occupation->occupationName}}</td>
+
+                <td>{{$vacancy->description}}</td>
+            </tr>
+    </table>
+    </div>
+    </div>
+    <div class="back">
+    <a href="{{ url('vacancies') }}" class="back_button">Back</a>
+    </div>
+@endsection

@@ -1,8 +1,8 @@
-@extends('layouts.app')
+@extends('layouts.layout')
 
 @section('content')
     <div class="jumbotron">
-        <div class="container">
+        <div class="layout-container">
             {!! Form::open(['url' => 'event/'.$event->id, 'method' => 'PATCH']) !!}
             {!! Form::token() !!}
             <div class="form-group">
@@ -24,7 +24,7 @@
                 {{FORM::label('agerestriction', 'Age restriction')}}
                 {!! Form::number('agerestriction', $event->agerestriction, ['class' => 'form-control']) !!}
             </div>
-
+            @include('layouts.errors')
             <div class="form-group">
                 {!! Form::submit('Save', ['class' => 'form-control']) !!}
             </div>

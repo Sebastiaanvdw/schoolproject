@@ -1,28 +1,27 @@
 @extends('layouts.app')
-@include('layouts.errors')
 
 @section ('content')
-    <div class="jumbotron">
-        <div class="container">
-            <h1>Edit a advertisement</h1>
+    <div class="grid-container">
+        <div class="edit_container">
+            <h1 class="edit_header">Edit a advertisement</h1>
 
             {!! Form::open(['url' => 'advertisements/'.$advertisement->id, 'method' => 'PATCH']) !!}
             {!! Form::token() !!}
-            <div class="form-group">
+            <div class="edit_container">
                 {!! Form::label('title', 'Title:') !!}
-                {!! Form::text('title', $advertisement->title, ['class' => 'form-control']) !!}
+                {!! Form::text('title', $advertisement->title, ['class' => 'form_title']) !!}
                 {!! Form::label('description', 'Description:') !!}
-                {!! Form::textarea('description', $advertisement->description, ['class' => 'form-control']) !!}
+                {!! Form::textarea('description', $advertisement->description, ['class' => 'form_description']) !!}
             </div>
-
+            @include('layouts.errors')
             <div class="form-group">
-                {!! Form::submit('Edit', ['class' => 'form-control']) !!}
+                {!! Form::submit('Edit', ['class' => 'edit_button-two']) !!}
             </div>
             {!! Form::close() !!}
-            <div class="form-group">
-                <a href="{{ url('advertisements') }}">Back</a>
-            </div>
         </div>
+    </div>
+    <div class="back">
+        <a href="{{ url('advertisements') }}" class="back_button">Back</a>
     </div>
 @endsection
 

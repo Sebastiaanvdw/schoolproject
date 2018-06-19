@@ -1,7 +1,7 @@
-@extends('layouts.app')
+@extends('layouts.layout')
 
 @section('content')
-    <div class="container">
+    <div class="layout-container">
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
@@ -17,9 +17,8 @@
 
                             {{ Form::label('email', 'Email')}}
                             {!! Form::text('email', $email = Auth::user()->email, ['class' => 'form-control']) !!}
-
                         </div>
-
+                        @include('layouts.errors')
                         <div class="form-group">
                             {!! Form::submit('Save', ['class' => 'form-control']) !!}
                         </div>
