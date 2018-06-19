@@ -41,7 +41,6 @@
                 </div>
             </div>
         </nav>
-    </div>
     <header class="row">
 
     </header>
@@ -50,7 +49,7 @@
 
         @yield('content')
 
-    </main
+    </main>
     <footer class="row">
 
     </footer>
