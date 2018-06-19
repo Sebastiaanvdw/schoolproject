@@ -1,6 +1,6 @@
 <div class="container">
     <div class="col-md-8 offset-md-2">
-        <h1>{{isset($merchandise)?'Edit':'New'}} Merchandise</h1>
+        <h1>{{isset($merchandise)?'Edit':'New'}} merchandise</h1>
         <hr/>
         @if(isset($merchandise))
             {!! Form::model($merchandise,['method'=>'put','id'=>'frm']) !!}
