@@ -19,6 +19,7 @@ class CreateSecondHandTicketsTable extends Migration
             $table->dateTime('begintime');
             $table->dateTime('endtime');
             $table->integer('age');
+            $table->integer('user_id');
             $table->timestamps();
         });
     }

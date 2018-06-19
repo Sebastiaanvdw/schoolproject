@@ -60,8 +60,8 @@
                     <a href="{{route('advertisements.index')}}">Advertisements</a>
                     <a href="{{route('tickets.index')}}">Tickets</a>
                     <a href="{{route('secondhandtickets.index')}}">Second-Hand Tickets</a>
-                    <a href="/clickets/public/merchandises">Merchandise</a>
-                    <a href="/clickets/public/companies">Companies</a>
+                    <a href="{{route('merchandises.index')}}">Merchandise</a>
+                    <a href="{{route('companies.index')}}">Companies</a>
                 </div>
             </div>
         </div>

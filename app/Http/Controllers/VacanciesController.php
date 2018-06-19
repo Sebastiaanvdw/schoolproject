@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreVacanciesPost;
 use App\Http\Requests\UpdateVacanciesPost;
 use App\Occupation;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 use App\vacancy;
@@ -33,6 +34,7 @@ class VacanciesController extends Controller
         $vacancy->title = request('title');
         $vacancy->occupation_id = request('occupation_id');
         $vacancy->description = request('description');
+        $vacancy->user_id =           Auth::user()->id;
         $vacancy->save();
 
         return redirect()->action('VacanciesController@index')->with('Succes', 'advertentie geplaatst.');

@@ -18,7 +18,7 @@
 </head>
 <body>
 <nav class="navbar fixed-top bg-info">
-    <a class="navbar-brand" href="/clickets/public/">Clickets</a>
+    <a class="navbar-brand" href="/">Clickets</a>
     @yield('nav')
 </nav>
 

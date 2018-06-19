@@ -18,7 +18,7 @@
                             {{ Form::label('email', 'Email')}}
                             {!! Form::text('email', $email = Auth::user()->email, ['class' => 'form-control']) !!}
                         </div>
-
+                        @include('layouts.errors')
                         <div class="form-group">
                             {!! Form::submit('Save', ['class' => 'form-control']) !!}
                         </div>

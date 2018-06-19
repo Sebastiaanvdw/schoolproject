@@ -15,6 +15,7 @@
             <td>{{$secondhandticket->begintime}}</td>
             <td>{{$secondhandticket->endtime}}</td>
             <td>{{$secondhandticket->age}}</td>
+            @if($secondhandticket->user_id == Auth::user()->id)
             <td>@role('user')
                 {{ Form::open(['method' => 'DELETE', 'route' => ['secondhandtickets.destroy', $secondhandticket->id]]) }}
                 {{ Form::submit('Delete', ['class' => 'btn btn-danger']) }}
@@ -27,6 +28,7 @@
                 {{ Form::close() }}
                 @endrole
             </td>
+            @endif
         </tr>
     @endforeach
 </table>

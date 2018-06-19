@@ -15,7 +15,8 @@
             <td>{{$ticket->begintime}}</td>
             <td>{{$ticket->endtime}}</td>
             <td>{{$ticket->age}}</td>
-            <td>
+            @if($ticket->user_id == Auth::user()->id)
+            <td>@role('verified-company')
                 {{ Form::open(['method' => 'GET', 'route' => ['tickets.edit', $ticket->id]]) }}
                 {{ Form::submit('Edit', ['class' => 'btn btn-edit']) }}
                 {{ Form::close() }}
@@ -24,7 +25,8 @@
                 {{ Form::open(['method' => 'DELETE', 'route' => ['tickets.destroy', $ticket->id]]) }}
                 {{ Form::submit('Delete', ['class' => 'btn btn-destroy']) }}
                 {{ Form::close() }}
-            </td>
+            </td>@endrole
+            @endif
         </tr>
     @endforeach
 </table>

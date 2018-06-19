@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreTicketsPost;
 use App\Http\Requests\UpdateTicketsPost;
-
+use Illuminate\Support\Facades\Auth;
 use App\ticket;
 use Illuminate\Http\Request;
 
@@ -29,6 +29,7 @@ class TicketsController extends Controller
         $ticket->begintime = request('begintime');
         $ticket->endtime = request('endtime');
         $ticket->age = request('age');
+        $ticket->user_id =           Auth::user()->id;
         $ticket->save();
 
         return redirect()->action('TicketsController@index')->with('Succes', 'ticket geplaatst.');

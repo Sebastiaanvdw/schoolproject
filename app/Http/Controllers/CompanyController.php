@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Company;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Auth;
 
 class CompanyController extends Controller
 {
@@ -53,6 +54,7 @@ class CompanyController extends Controller
         $company = new Company();
         $company->title = $request->title;
         $company->description = $request->description;
+        $company->user_id =           Auth::user()->id;
         $company->save();
 
         return response()->json([

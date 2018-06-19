@@ -52,10 +52,12 @@
                 </a>
                 {{request()->session()->get('field')=='updated_at'?(request()->session()->get('sort')=='asc'?'':''):''}}
             </th>
+            @role('verified-company')
             <th width="160px" style="vertical-align: middle">
                 <a href="javascript:ajaxLoad('{{url('companies/create')}}')"
                    class="btn btn-primary btn-xs"> <i class="fa fa-plus" aria-hidden="true"></i> New Company</a>
             </th>
+            @endrole
         </tr>
         </thead>
         <tbody>
@@ -73,6 +75,8 @@
                     <a class="btn btn-info btn-xs" title="Show"
                        href="javascript:ajaxLoad('{{url('companies/show/'.$company->id)}}')">
                         Show</a>
+                    @if($company->user_id == Auth::user()->id)
+                    @role('verified-company')
                     <a class="btn btn-warning btn-xs" title="Edit"
                        href="javascript:ajaxLoad('{{url('companies/update/'.$company->id)}}')">
                         Edit</a>
@@ -81,6 +85,8 @@
                        href="javascript:if(confirm('Are you sure want to delete?')) ajaxDelete('{{url('companies/delete/'.$company->id)}}','{{csrf_token()}}')">
                         Delete
                     </a>
+                    @endrole
+                    @endif
                 </td>
             </tr>
         @endforeach

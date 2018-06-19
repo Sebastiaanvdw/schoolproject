@@ -6,6 +6,7 @@ use App\Event;
 use App\Http\Requests\StoreEventPost;
 use App\Http\Requests\UpdateEventPost;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class EventController extends Controller
 {
@@ -46,6 +47,7 @@ class EventController extends Controller
         $event->starttime =         request('starttime');
         $event->endtime =           request('endtime');
         $event->agerestriction =    request('agerestriction');
+        $event->user_id =           Auth::user()->id;
         $event->save();
 
         return redirect()->route('event.store', $event);

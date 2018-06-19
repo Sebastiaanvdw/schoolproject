@@ -17,6 +17,7 @@ class CreateMerchandisesTable extends Migration
             $table->increments('id', 100);
             $table->string('title', 100);
             $table->text('description', 100);
+            $table->integer('user_id');
             $table->timestamps();
         });
     }

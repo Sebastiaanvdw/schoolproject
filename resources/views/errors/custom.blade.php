@@ -1,9 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>User not found.</title>
-</head>
-<body>
-<p>You broke the balance of the internet</p>
-</body>
-</html>
+@extends('layouts.layout')
+@section('content')
+
+    <h1 style="text-align: center">Access denied</h1>
+
+@endsection

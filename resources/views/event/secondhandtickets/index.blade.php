@@ -10,11 +10,13 @@
         <div id="results">
             Loading...
         </div>
+        @role('user')
         <div class="container">
             <a href="secondhandtickets/create">
                 {{ Form::submit('Create', ['class' => 'btn btn-create']) }}
             </a>
         </div>
+        @endrole
         <div class="form-group">
             <a href="{{ url('/') }}">Back</a>
         </div>

@@ -17,7 +17,7 @@
 
             <td>{{$vacancy->description}}</td>
             </div>
-
+            {{--@if($vacancy->user_id == Auth::user()->id)--}}
             <td>@role('verified-company')
                 {{ Form::open(['method' => 'DELETE', 'route' => ['vacancies.destroy', $vacancy->id]]) }}
                 {{ Form::submit('Delete', ['class' => 'delete_button']) }}
@@ -30,6 +30,7 @@
                 {{ Form::close() }}
                 @endrole
             </td>
+            {{--@endif--}}
         </tr>
     @endforeach
 </table>

@@ -130,7 +130,7 @@ input[type=name]{
 }
 
 input[type=radio]{
-  width: 0;
+  width: 100px;
 }
 
 button[type=submit] {

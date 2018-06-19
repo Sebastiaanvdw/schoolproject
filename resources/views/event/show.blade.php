@@ -13,6 +13,7 @@
                     <p class="card-text">Begin time: {{ $event->starttime }}</p>
                     <p class="card-text">End time: {{ $event->endtime }}</p>
                     <p class="card-text">Age restriction: {{ $event->agerestriction }}</p>
+                        @if($event->user_id == Auth::user()->id)
                         @role('verified-company')
                         <a href="{{ URL::to('event/'.$event->id. '/edit') }}"><button class="btn btn-primary">Edit </button></a>
 
@@ -20,6 +21,7 @@
                     {{ Form::submit('Delete', ['class' => 'btn btn-danger']) }}
                     {{ Form::close() }}
                         @endrole
+                        @endif
                     </div>
                 </div>
                 <div class="form-group">

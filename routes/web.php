@@ -46,7 +46,7 @@ Route::get('/event/create', 'EventController@create')->middleware('role:verified
 /*Auth*/
 Auth::routes();
 
-
+/*merchandises*/
 Route::group(['prefix' => 'merchandises'], function() {
     Route::get('/', 'MerchandiseController@index');
     Route::match(['get', 'post'], 'create', 'MerchandiseController@create');
@@ -54,7 +54,10 @@ Route::group(['prefix' => 'merchandises'], function() {
     Route::get('show/{id}', 'MerchandiseController@show');
     Route::delete('delete/{id}', 'MerchandiseController@destroy');
 });
+Route::resource('/merchandises', 'MerchandiseController');
+Route::get('/merchandises/create', 'MerchandiseController@create')->middleware('role:verified-company');
 
+/*companies*/
 Route::group(['prefix' => 'companies'], function() {
     Route::get('/', 'CompanyController@index');
     Route::match(['get', 'post'], 'create', 'CompanyController@create');
@@ -62,3 +65,5 @@ Route::group(['prefix' => 'companies'], function() {
     Route::get('show/{id}', 'CompanyController@show');
     Route::delete('delete/{id}', 'CompanyController@destroy');
 });
+Route::resource('/companies', 'CompanyController');
+Route::get('/companies/create', 'CompanyController@create')->middleware('role:verified-company');

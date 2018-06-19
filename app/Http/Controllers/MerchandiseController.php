@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Merchandise;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Auth;
 
 class MerchandiseController extends Controller
 {
@@ -53,6 +54,7 @@ class MerchandiseController extends Controller
         $merchandise = new Merchandise();
         $merchandise->title = $request->title;
         $merchandise->description = $request->description;
+        $merchandise->user_id =           Auth::user()->id;
         $merchandise->save();
 
         return response()->json([

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UpdateHomePost;
 use App\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
@@ -38,7 +39,7 @@ class HomeController extends Controller
         return view('auth.edit', compact('user'));
     }
 
-    public function update(Request $request, User $user)
+    public function update(UpdateHomePost $request, User $user)
     {
         $user = Auth::user();
         $user->name =           $request->name;

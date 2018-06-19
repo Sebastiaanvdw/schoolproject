@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreSecondHandTicketsPost;
 use App\Http\Requests\UpdateSecondHandTicketsPost;
-
+use Illuminate\Support\Facades\Auth;
 use App\secondhandticket;
 use Illuminate\Http\Request;
 
@@ -29,6 +29,7 @@ class SecondHandTicketsController extends Controller
         $secondhandticket->begintime = request('begintime');
         $secondhandticket->endtime = request('endtime');
         $secondhandticket->age = request('age');
+        $secondhandticket->user_id =           Auth::user()->id;
         $secondhandticket->save();
 
         return redirect()->action('SecondHandTicketsController@index')->with('Succes', 'tweedehands ticket geplaatst.');
