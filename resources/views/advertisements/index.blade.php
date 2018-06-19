@@ -11,7 +11,7 @@
                 @foreach($advertisements as $advertisement)
                     <tr>
                         <div class="table_info">
-                        <td>
+                        <td class="table_title">
                             <a href="advertisements/{{ $advertisement->id }}">
                                 {{$advertisement->title}}
                             </a>

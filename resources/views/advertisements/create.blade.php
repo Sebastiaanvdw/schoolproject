@@ -16,7 +16,7 @@
             @include('layouts.errors')
 
             <div>
-                {!! Form::submit('Create', ['class' => 'edit_button2']) !!}
+                {!! Form::submit('Create', ['class' => 'edit_button-two']) !!}
             </div>
             {!! Form::close() !!}
         </div>

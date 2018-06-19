@@ -7,7 +7,7 @@
     @foreach($vacancies as $vacancy)
         <tr>
             <div class="table_info">
-            <td>
+            <td class="table_title">
                 <a href="vacancies/{{ $vacancy->id }}">
                     {{$vacancy->title}}
                 </a>
