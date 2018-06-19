@@ -13,7 +13,7 @@
                     <p class="card-text">Begin time: {{ $event->starttime }}</p>
                     <p class="card-text">End time: {{ $event->endtime }}</p>
                     <p class="card-text">Age restriction: {{ $event->agerestriction }}</p>
-                        @role('company')
+                        @role('verified-company')
                         <a href="{{ URL::to('event/'.$event->id. '/edit') }}"><button class="btn btn-primary">Edit </button></a>
 
                     {{ Form::open(['method' => 'DELETE', 'route' => ['event.destroy', $event->id]]) }}

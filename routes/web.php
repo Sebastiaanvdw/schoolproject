@@ -7,6 +7,7 @@ Route::get('/', function() { return view ('welcome');});
 Route::resource('/home', 'HomeController');
 
 /*Admin*/
+Route::post('/admin/search', 'AdminsController@postSearch')->name('admin.search');
 Route::prefix('admin')->group(function() {
     Route::get('/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
     Route::post('/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
@@ -14,22 +15,26 @@ Route::prefix('admin')->group(function() {
     Route::get('/', 'AdminsController@index')->name('admin.index');
 //    Route::get('/', 'AdminsController@show')->name('admin.show');
 });
-
 Route::resource('/admin', 'AdminsController');
 Route::model('admin', \App\User::class);
+
 /*Vacancies*/
 Route::post('/vacancies/search', 'VacanciesController@postSearch')->name('vacancies.search');
 Route::resource('/vacancies', 'VacanciesController');
+Route::get('/vacancies/create', 'VacanciesController@create')->middleware('role:verified-company');
 
 
 /*Advertisements*/
 Route::resource('/advertisements', 'AdvertisementsController');
+Route::get('/advertisements/create', 'AdvertisementsController@create')->middleware('role:verified-company');
 
 /*Tickets*/
 Route::resource('/tickets', 'TicketsController');
+Route::get('/tickets/create', 'TicketsController@create')->middleware('role:verified-company');
 
 /*Second-Hand Tickets*/
 Route::resource('/secondhandtickets', 'SecondHandTicketsController');
+Route::get('/secondhandtickets/create', 'SecondHandTicketsController@create')->middleware('role:verified-company');
 
 /*Events*/
 Route::post('/event/search', 'EventController@postSearch')->name('event.search');
