@@ -11,9 +11,9 @@
             <td>{{ $users->email }}</td>
             <td>
                 @if($users->verified == 1)
-                    <a><i id="verified" class="far fa-check-circle fa-lg"></i></a>
+                    <span class="far fa-check-circle fa-lg"></span>
                 @else
-                    <a><i id="verified" class="far fa-times-circle fa-lg"></i></a>
+                    <span class="far fa-times-circle fa-lg"></span>
                 @endif
             </td>
             <td>

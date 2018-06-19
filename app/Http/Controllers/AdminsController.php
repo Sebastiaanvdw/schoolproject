@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UpdateAdminPost;
 use App\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
@@ -72,10 +73,11 @@ class AdminsController extends Controller
         return view('admin.edit', compact('user'));
     }
 
-    public function update(Request $request, User $user)
+    public function update(UpdateAdminPost $request, User $user)
     {
         $user->name = $request->name;
         $user->email = $request->email;
+        $user->company = $request->company;
         $user->verified =$request->verified;
         $user->save();
 

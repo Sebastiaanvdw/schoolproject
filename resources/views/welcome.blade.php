@@ -25,11 +25,13 @@
                         <li><a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a></li>
                     @else
                         <li>
-                            <a class="username" href="http://localhost/Clickets/public/home">
-                                Hallo, {{ Auth::user()->name }} <span class="caret"></span>
+                            <a class="username" href="/home">
+                                Welcome, {{ Auth::user()->name }}<span class="caret">  </span>
                             </a>
+                        </li>
 
-                            <div>
+                        <div>
+                            <li>
                                 <a href="{{ route('logout') }}"
                                    onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -39,13 +41,12 @@
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                     @csrf
                                 </form>
-                            </div>
-                        </li>
+                            </li>
+                        </div>
                     @endguest
                 </ul>
             </div>
-    </div>
-    </nav>
+        </nav>
     </div>
             <div class="content">
                 <div class="title m-b-md">
