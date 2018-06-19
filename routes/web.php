@@ -27,9 +27,12 @@ Route::resource('/advertisements', 'AdvertisementsController');
 
 /*Tickets*/
 Route::resource('/tickets', 'TicketsController');
+
 /*Second-Hand Tickets*/
 Route::resource('/secondhandtickets', 'SecondHandTicketsController');
+
 /*Events*/
+Route::post('/event/search', 'EventController@postSearch')->name('event.search');
 Route::resource('/event', 'EventController');
 Route::get('/event/create', 'EventController@create')->middleware('role:verified-company');
 
