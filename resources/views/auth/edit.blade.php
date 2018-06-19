@@ -17,7 +17,6 @@
 
                             {{ Form::label('email', 'Email')}}
                             {!! Form::text('email', $email = Auth::user()->email, ['class' => 'form-control']) !!}
-
                         </div>
 
                         <div class="form-group">

@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreVacanciesPost;
 use App\Http\Requests\UpdateVacanciesPost;
-use Illuminate\Http\Requests;
+use App\Occupation;
+use Illuminate\Http\Request;
 
 use App\vacancy;
 
@@ -12,21 +13,25 @@ class VacanciesController extends Controller
 {
     public function index()
     {
-        $vacancies = vacancy::orderBy('created_at', 'asc')->get();
-
+        $vacancies = vacancy::orderBy('created_at', 'desc')->get();
         return view('vacancies.index', compact('vacancies'));
     }
 
     public function create(Vacancy $vacancy)
     {
-        return view('vacancies.create', compact('vacancy'));
+        $occupations = [];
+        foreach (Occupation::all() as $occupation) {
+            $occupations[$occupation->id] = $occupation->occupationName;
+        }
+
+        return view('vacancies.create', compact('vacancy', 'occupations'));
     }
 
     public function store(StoreVacanciesPost $request)
     {
         $vacancy = new Vacancy();
         $vacancy->title = request('title');
-        $vacancy->occupation = request('occupation');
+        $vacancy->occupation_id = request('occupation_id');
         $vacancy->description = request('description');
         $vacancy->save();
 
@@ -42,13 +47,18 @@ class VacanciesController extends Controller
 
     public function edit(vacancy $vacancy)
     {
-        return view('vacancies.edit',  compact('vacancy'));
+        $occupations = [];
+        foreach (Occupation::all() as $occupation) {
+            $occupations[$occupation->id] = $occupation->occupationName;
+        }
+
+        return view('vacancies.edit',  compact('vacancy','occupations'));
     }
 
     public function update(UpdateVacanciesPost $request, vacancy $vacancy)
     {
         $vacancy->title = $request->title;
-        $vacancy->occupation = $request->occupation;
+        $vacancy->occupation_id = $request->occupation_id;
         $vacancy->description = $request->description;
         $vacancy->save();
 
@@ -62,4 +72,28 @@ class VacanciesController extends Controller
 
         return redirect()->action('VacanciesController@index');
     }
+
+    public function postSearch(Request $request)
+    {
+        if($request->has('query')) {
+            $vacancies = vacancy::join('occupations', 'occupation_id', '=', 'occupations.id')
+                ->where('title', 'LIKE', '%' . $request->get('query') .  '%')
+                ->Orwhere('occupations.occupationName', 'LIKE', '%' . $request->get('query') .  '%')
+                ->select('vacancies.*')
+                ->get();
+            return view('vacancies.searchresults', compact('vacancies'));
+        } else {
+            return abort(400);
+        }
+    }
+
+//    public function postSearch(Request $request)
+//    {
+//        if($request->has('query')) {
+//            $vacancies = vacancy::join('')where('title', 'LIKE', '%' . $request->get('query') .  '%')->get();
+//            return view('vacancies.searchresults', compact('vacancies'));
+//        } else {
+//            return abort(400);
+//        }
+//    }
 }

@@ -24,7 +24,7 @@
                 {!! Form::text('endtime', '', ['class' => 'form-control']) !!}
 
                 {{FORM::label('agerestriction', 'Age restriction')}}
-                {!! Form::number('agerestriction', '', ['class' => 'form-control']) !!}
+                {!! Form::number('agerestriction', '', ['placeholder' => '0 = No age restriction', 'class' => 'form-control']) !!}
             </div>
 
             <div class="form-group">

@@ -1,19 +1,22 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">{{ $advertisement->title }}</div>
-                    <div class="card-body">
-                        <p class="card-text">Description: {{ $advertisement->description }}</p>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <a href="{{ url('advertisements') }}">Back</a>
-                </div>
-            </div>
+    <div class="">
+        <div class="show_container">
+            <table>
+                <tr class="table_header">
+                    <th>Title:</th>
+                    <th>Description:</th>
+                </tr>
+                <tr class="table_info">
+                    <td>{{$advertisement->title}}</td>
+
+                    <td>{{$advertisement->description}}</td>
+                </tr>
+            </table>
         </div>
+    </div>
+    <div class="back">
+        <a href="{{ url('advertisements') }}" class="back_button">Back</a>
     </div>
 @endsection

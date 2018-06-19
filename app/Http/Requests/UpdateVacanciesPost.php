@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Occupation;
 use Illuminate\Foundation\Http\FormRequest;
 
 class UpdateVacanciesPost extends FormRequest
@@ -25,7 +26,7 @@ class UpdateVacanciesPost extends FormRequest
     {
         return [
             'title' => 'required',
-            'occupation' => 'required',
+            'occupation_id' => 'required|numeric|min:1|max:' . Occupation::count(),
             'description' => 'required'
         ];
     }
