@@ -39,8 +39,8 @@
                             <li><a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a></li>
                         @else
                             <li>
-                                <a class="username" href="http://localhost/Clickets/public/home">
-                                    Hallo, {{ Auth::user()->name }} <span class="caret"></span>
+                                <a class="username" href="/home">
+                                    Welcome, {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
                             </li>
 
