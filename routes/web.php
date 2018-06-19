@@ -26,8 +26,10 @@ Route::resource('/vacancies', 'VacanciesController');
 Route::resource('/advertisements', 'AdvertisementsController');
 
 /*Tickets*/
+Route::post('/tickets/search', 'TicketsController@postSearch')->name('tickets.search');
 Route::resource('/tickets', 'TicketsController');
 /*Second-Hand Tickets*/
+Route::post('/secondhandtickets/search', 'SecondHandTicketsController@postSearch')->name('secondhandtickets.search');
 Route::resource('/secondhandtickets', 'SecondHandTicketsController');
 /*Events*/
 Route::resource('/event', 'EventController');

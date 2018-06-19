@@ -7,7 +7,6 @@ body {
   margin: 0; }
 
 .flex-container {
-  max-width: 1140px;
   margin: 0 auto;
   display: flex;
   flex-wrap: wrap; }
@@ -36,10 +35,9 @@ body {
   justify-content: space-between; }
 
 .navbar-nav {
+  text-align: center;
   list-style: none;
   align-items: center;
-  padding-left: 900px;
-  flex-direction: column;
   display: flex;
   margin-bottom: 0; }
 
@@ -60,6 +58,7 @@ a {
   text-decoration: none; }
 
 a.username {
+  padding-right: 5px;
   color: #000000;
   text-decoration: none; }
 
@@ -126,6 +125,14 @@ input {
 input[type=checkbox] {
   width: 0; }
 
+input[type=name]{
+  width: 0;
+}
+
+input[type=radio]{
+  width: 0;
+}
+
 button[type=submit] {
   width: 100%;
   background-color: #2966af;
@@ -159,8 +166,8 @@ button[type=submit]:hover {
   text-align: center; }
 
 .title {
-  font-size: 84px;
-  margin-top: 5%; }
+  font-size: 60px;
+  margin-top: 1%; }
 
 .links > a {
   color: #636b6f;
@@ -171,7 +178,7 @@ button[type=submit]:hover {
   text-decoration: none; }
 
 .m-b-md {
-  margin-bottom: 30px; }
+  margin-bottom: 10px; }
 
 .card {
   position: relative;
@@ -199,4 +206,13 @@ button[type=submit]:hover {
   flex: 1 1 auto;
   padding: 1.25rem; }
 
+.footer-copyright{
+  height: 3.75%;
+  overflow: hidden;
+  background-color: #333;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+}
 /*# sourceMappingURL=index.css.map */

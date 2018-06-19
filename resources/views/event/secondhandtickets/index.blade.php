@@ -3,46 +3,28 @@
 
 @section('content')
     <div class="layout-container">
-        <table class="table">
-            <tr>
-                <th>Ticket Name:</th>
-                <th>Begin date and time:</th>
-                <th>End date and time:</th>
-                <th>Age restriction:</th>
-            </tr>
-            @foreach($secondhandtickets as $secondhandticket)
-                <tr>
-                    <td>
-                        <a href="secondhandtickets/{{ $secondhandticket->id }}">
-                            {{$secondhandticket->name}}
-                        </a>
-                    </td>
-                    <td>{{$secondhandticket->begintime}}</td>
-                    <td>{{$secondhandticket->endtime}}</td>
-                    <td>{{$secondhandticket->age}}</td>
-                    <td>@role('user')
-                        {{ Form::open(['method' => 'DELETE', 'route' => ['secondhandtickets.destroy', $secondhandticket->id]]) }}
-                        {{ Form::submit('Delete', ['class' => 'btn btn-danger']) }}
-                        {{ Form::close() }}
-                        @endrole
-                    </td>
-                    <td>@role('user')
-                        {{ Form::open(['method' => 'GET', 'route' => ['secondhandtickets.edit', $secondhandticket->id]]) }}
-                        {{ Form::submit('Edit', ['class' => 'btn btn-primary']) }}
-                        {{ Form::close() }}
-                        @endrole
-                    </td>
-                </tr>
-            @endforeach
-        </table>
-       @role('user')
-        <a href="secondhandtickets/create">
-            {{ Form::submit('Create', ['class' => 'btn btn-primary']) }}
-        </a>
-        @endrole
+        <form action="{{ route('secondhandtickets.search') }}" method="POST" class="ajaxSearch">
+            <input type="search" name="query" placeholder="Type something to search" autocomplete="off" class="search_bar">
+            <input type="submit" value="Search" class="search_button">
+        </form>
+        <div id="results">
+            Loading...
+        </div>
+        <div class="container">
+            <a href="secondhandtickets/create">
+                {{ Form::submit('Create', ['class' => 'btn btn-create']) }}
+            </a>
+        </div>
         <div class="form-group">
             <a href="{{ url('http://localhost/Clickets/public/') }}">Back</a>
         </div>
     </div>
 
+@endsection
+
+@section('scripts')
+    <script>
+        var csrf_token = "{{ csrf_token() }}";
+    </script>
+    <script src="{{ asset('js/search.js') }}"></script>
 @endsection

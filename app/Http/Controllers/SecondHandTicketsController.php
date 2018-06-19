@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreSecondHandTicketsPost;
 use App\Http\Requests\UpdateSecondHandTicketsPost;
-use Illuminate\Http\Requests;
 
 use App\secondhandticket;
+use Illuminate\Http\Request;
 
 class SecondHandTicketsController extends Controller
 {
@@ -63,5 +63,16 @@ class SecondHandTicketsController extends Controller
         $secondhandticket->delete();
 
         return redirect()->action('SecondHandTicketsController@index');
+    }
+
+    public function postSearch(Request $request)
+    {
+        if($request->has('query')) {
+            $secondhandtickets = SecondHandTicket::where('name', 'LIKE', '%' . $request->get('query') .  '%')
+                ->get();
+            return view('event.secondhandtickets.searchresults', compact('secondhandtickets'));
+        } else {
+            return abort(400);
+        }
     }
 }

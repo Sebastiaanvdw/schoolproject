@@ -1,8 +1,8 @@
-@extends('layouts.layout')
+@extends('layouts.app')
 @include('layouts.errors')
 
 @section('content')
-    <div class="layout-container">
+    <div class="container">
     <table class="table">
         <tr>
             <th>Name</th>
@@ -23,12 +23,11 @@
     </tr>
     @endforeach
     </table>
-        <div class="container">
-            <a href="event/create">
-                {{ Form::submit('Create', ['class' => 'btn btn-create']) }}
-            </a>
-        </div>
+        @role('verified-company')
+        <a href="event/create">
+            {{ Form::submit('Create', ['class' => 'btn btn-primary']) }}
+        </a>
+        @endrole
     </div>
-
 
 @endsection
