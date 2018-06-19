@@ -40,7 +40,6 @@
                     </ul>
                 </div>
         </nav>
-    </div>
     <header class="row">
 
     </header>
