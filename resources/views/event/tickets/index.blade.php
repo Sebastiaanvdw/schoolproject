@@ -20,7 +20,7 @@
                     <td>{{$ticket->begintime}}</td>
                     <td>{{$ticket->endtime}}</td>
                     <td>{{$ticket->age}}</td>
-                    <td>
+                    <td>@role('verified-company')
                         {{ Form::open(['method' => 'GET', 'route' => ['tickets.edit', $ticket->id]]) }}
                         {{ Form::submit('Edit', ['class' => 'btn btn-edit']) }}
                         {{ Form::close() }}
@@ -29,17 +29,19 @@
                         {{ Form::open(['method' => 'DELETE', 'route' => ['tickets.destroy', $ticket->id]]) }}
                         {{ Form::submit('Delete', ['class' => 'btn btn-destroy']) }}
                         {{ Form::close() }}
-                    </td>
+                    </td>@endrole
                 </tr>
             @endforeach
         </table>
+        @role('verified-company')
 <div class="container">
     <a href="tickets/create">
         {{ Form::submit('Create', ['class' => 'btn btn-create']) }}
     </a>
 </div>
+        @endrole
         <div class="form-group">
-            <a href="{{ url('http://localhost/Clickets/public/') }}">Back</a>
+            <a href="{{ url('/') }}">Back</a>
         </div>
     </div>
 

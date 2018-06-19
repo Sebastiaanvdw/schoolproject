@@ -20,13 +20,13 @@
                     <td>{{$secondhandticket->begintime}}</td>
                     <td>{{$secondhandticket->endtime}}</td>
                     <td>{{$secondhandticket->age}}</td>
-                    <td>@role('user')
+                    <td>@role('verified-company')
                         {{ Form::open(['method' => 'DELETE', 'route' => ['secondhandtickets.destroy', $secondhandticket->id]]) }}
                         {{ Form::submit('Delete', ['class' => 'btn btn-danger']) }}
                         {{ Form::close() }}
-                        @endrole
+
                     </td>
-                    <td>@role('user')
+                    <td>
                         {{ Form::open(['method' => 'GET', 'route' => ['secondhandtickets.edit', $secondhandticket->id]]) }}
                         {{ Form::submit('Edit', ['class' => 'btn btn-primary']) }}
                         {{ Form::close() }}
@@ -35,13 +35,13 @@
                 </tr>
             @endforeach
         </table>
-       @role('user')
+        @role('verified-company')
         <a href="secondhandtickets/create">
             {{ Form::submit('Create', ['class' => 'btn btn-primary']) }}
         </a>
         @endrole
         <div class="form-group">
-            <a href="{{ url('http://localhost/Clickets/public/') }}">Back</a>
+            <a href="{{ url('/') }}">Back</a>
         </div>
     </div>
 

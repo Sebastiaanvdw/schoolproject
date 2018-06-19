@@ -1,4 +1,5 @@
 @extends('layouts.layout')
+@include('layouts.errors')
 
 @section('content')
     <div class="container">

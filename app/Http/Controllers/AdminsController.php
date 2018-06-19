@@ -30,7 +30,7 @@ class AdminsController extends Controller
     public function index()
     {
         $user = User::all();
-        return view('admin', compact('user'));
+        return view('admin.index', compact('user'));
     }
 
     public function create ()
@@ -97,5 +97,17 @@ class AdminsController extends Controller
         $user->delete();
 
         return redirect()->route('admin.index');
+    }
+
+    public function postSearch(Request $request)
+    {
+        if($request->has('query')) {
+            $user = User::where('name', 'LIKE', '%' . $request->get('query') .  '%')
+                ->Orwhere('email', 'LIKE', '%' . $request->get('query') .  '%')
+                ->get();
+            return view('admin.searchresults', compact('user'));
+        } else {
+            return abort(400);
+        }
     }
 }
