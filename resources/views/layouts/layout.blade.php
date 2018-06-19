@@ -5,16 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="{{ asset('css/index.css') }}" rel="stylesheet">
-
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <title>{{ config('app.name', 'Laravel') }}</title>
+    <!-- Fonts -->
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet" type="text/css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+          integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
-
-    <!-- Scripts -->
-    {{--<script src="{{ asset('js/app.js') }}" defer></script>--}}
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
 </head>
 <body>
     <div id="nav">
@@ -30,11 +31,13 @@
                             <li><a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a></li>
                         @else
                             <li>
-                                <a class="username" href="/home">
+                                <a class="username" href="http://localhost/Clickets/public/home">
                                     Hallo, {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
+                            </li>
 
                                 <div>
+                                    <li>
                                     <a href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -44,25 +47,29 @@
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
+                                    </li>
                                 </div>
-                            </li>
                         @endguest
                     </ul>
                 </div>
         </nav>
     <header class="row">
-
+        <div class="content">
+            <div class="title m-b-md">
+                Clickets!
+            </div>
+            <h3>Click and it's done!</h3>
+        </div>
     </header>
 
     <main>
-
         @yield('content')
-
     </main>
-    <footer class="row">
 
+    <footer class="row">
+        <div class="footer-copyright">© 2018 Copyright: Clickets!
+        </div>
     </footer>
-    </div>
-    @yield('scripts')
+
 </body>
 </html>

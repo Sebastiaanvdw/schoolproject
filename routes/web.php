@@ -29,10 +29,12 @@ Route::resource('/advertisements', 'AdvertisementsController');
 Route::get('/advertisements/create', 'AdvertisementsController@create')->middleware('role:verified-company');
 
 /*Tickets*/
+Route::post('/tickets/search', 'TicketsController@postSearch')->name('tickets.search');
 Route::resource('/tickets', 'TicketsController');
 Route::get('/tickets/create', 'TicketsController@create')->middleware('role:verified-company');
 
 /*Second-Hand Tickets*/
+Route::post('/secondhandtickets/search', 'SecondHandTicketsController@postSearch')->name('secondhandtickets.search');
 Route::resource('/secondhandtickets', 'SecondHandTicketsController');
 Route::get('/secondhandtickets/create', 'SecondHandTicketsController@create')->middleware('role:verified-company');
 

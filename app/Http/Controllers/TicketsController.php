@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreTicketsPost;
 use App\Http\Requests\UpdateTicketsPost;
-use Illuminate\Http\Requests;
 
 use App\ticket;
+use Illuminate\Http\Request;
 
 class TicketsController extends Controller
 {
@@ -63,5 +63,16 @@ class TicketsController extends Controller
         $ticket->delete();
 
         return redirect()->action('TicketsController@index');
+    }
+
+    public function postSearch(Request $request)
+    {
+        if($request->has('query')) {
+            $tickets = Ticket::where('name', 'LIKE', '%' . $request->get('query') .  '%')
+                ->get();
+            return view('event.tickets.searchresults', compact('tickets'));
+        } else {
+            return abort(400);
+        }
     }
 }

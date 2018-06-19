@@ -51,6 +51,7 @@
                 <div class="title m-b-md">
                     Clickets!
                 </div>
+                <h2>Click and it's done!</h2>
 
                 <div class="links">
                     <a href="{{route('event.index')}}">Events</a>
@@ -63,5 +64,9 @@
                 </div>
             </div>
         </div>
+    <footer class="row">
+        <div class="footer-copyright">© 2018 Copyright: Clickets!
+        </div>
+    </footer>
     </body>
 </html>
