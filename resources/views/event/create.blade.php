@@ -1,12 +1,13 @@
-@extends('layouts.app')
+@extends('layouts.layout')
 @include('layouts.errors')
 
 @section('content')
     <div class="jumbotron">
-        <div class="container">
+        <div class="layout-container">
             {!! Form::open(['url' => 'event', 'method' => 'POST']) !!}
             {!! Form::token() !!}
             <div class="form-group">
+                <h1>Create an Event</h1>
                 {{FORM::label('name', 'Name')}}
                 {!! Form::text('name', '', ['class' => 'form-control']) !!}
 

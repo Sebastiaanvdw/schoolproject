@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Post;
+use App\Merchandise;
 use Illuminate\Support\Facades\Validator;
 
-class PostController extends Controller
+class MerchandiseController extends Controller
 {
     public function index(Request $request)
     {
@@ -22,21 +22,21 @@ class PostController extends Controller
             ->has('sort') ? $request->get('sort') : ($request->session()
             ->has('sort') ? $request->session()->get('sort') : 'asc'));
 
-        $posts = new Post();
-        $posts = $posts->where('title', 'like', '%' . $request->session()->get('search') . '%')
+        $merchandises = new Merchandise();
+        $merchandises = $merchandises->where('title', 'like', '%' . $request->session()->get('search') . '%')
             ->orderBy($request->session()->get('field'), $request->session()->get('sort'))
             ->paginate(5);
         if ($request->ajax()) {
-            return view('posts.index', compact('posts'));
+            return view('merchandises.index', compact('merchandises'));
         } else {
-            return view('posts.ajax', compact('posts'));
+            return view('merchandises.ajax', compact('merchandises'));
         }
     }
 
     public function create(Request $request)
     {
         if ($request->isMethod('get'))
-            return view('posts.form');
+            return view('merchandises.form');
 
         $rules = [
             'title' => 'required',
@@ -50,28 +50,28 @@ class PostController extends Controller
                 'errors' => $validator->errors()
             ]);
 
-        $post = new Post();
-        $post->title = $request->title;
-        $post->description = $request->description;
-        $post->save();
+        $merchandise = new Merchandise();
+        $merchandise->title = $request->title;
+        $merchandise->description = $request->description;
+        $merchandise->save();
 
         return response()->json([
             'fail' => false,
-            'redirect_url' => url('posts')
+            'redirect_url' => url('merchandises')
         ]);
     }
 
     public function show(Request $request, $id)
     {
         if($request->isMethod('get')) {
-            return view('posts.detail',['post' => Post::find($id)]);
+            return view('merchandises.detail',['merchandise' => Merchandise::find($id)]);
         }
     }
 
     public function update(Request $request, $id)
     {
         if ($request->isMethod('get'))
-            return view('posts.form',['post' => Post::find($id)]);
+            return view('merchandises.form',['company' => Merchandise::find($id)]);
 
         $rules = [
             'title' => 'required',
@@ -85,20 +85,20 @@ class PostController extends Controller
                 'errors' => $validator->errors()
             ]);
 
-        $post = Post::find($id);
-        $post->title = $request->title;
-        $post->description = $request->description;
-        $post->save();
+        $merchandise = Merchandise::find($id);
+        $merchandise->title = $request->title;
+        $merchandise->description = $request->description;
+        $merchandise->save();
 
         return response()->json([
             'fail' => false,
-            'redirect_url' => url('posts')
+            'redirect_url' => url('merchandises')
         ]);
     }
 
     public function destroy($id)
     {
-        Post::destroy($id);
-        return redirect('posts');
+        Merchandise::destroy($id);
+        return redirect('merchandises');
     }
 }

@@ -37,10 +37,18 @@ Route::get('/event/create', 'EventController@create')->middleware('role:verified
 Auth::routes();
 
 
-Route::group(['prefix' => 'posts'], function() {
-    Route::get('/', 'PostController@index');
-    Route::match(['get', 'post'], 'create', 'PostController@create');
-    Route::match(['get', 'put'], 'update/{id}', 'PostController@update');
-    Route::get('show/{id}', 'PostController@show');
-    Route::delete('delete/{id}', 'PostController@destroy');
+Route::group(['prefix' => 'merchandises'], function() {
+    Route::get('/', 'MerchandiseController@index');
+    Route::match(['get', 'post'], 'create', 'MerchandiseController@create');
+    Route::match(['get', 'put'], 'update/{id}', 'MerchandiseController@update');
+    Route::get('show/{id}', 'MerchandiseController@show');
+    Route::delete('delete/{id}', 'MerchandiseController@destroy');
+});
+
+Route::group(['prefix' => 'companies'], function() {
+    Route::get('/', 'CompanyController@index');
+    Route::match(['get', 'post'], 'create', 'CompanyController@create');
+    Route::match(['get', 'put'], 'update/{id}', 'CompanyController@update');
+    Route::get('show/{id}', 'CompanyController@show');
+    Route::delete('delete/{id}', 'CompanyController@destroy');
 });

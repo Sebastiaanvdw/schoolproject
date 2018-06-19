@@ -1,9 +1,9 @@
-@extends('layouts.app')
+@extends('layouts.layout')
 @include('layouts.errors')
 
 @section('content')
     <div class="jumbotron">
-        <div class="container">
+        <div class="layout-container">
             <h1>Create a Second-Hand Ticket</h1>
 
             {!! Form::open(['url' => 'secondhandtickets', 'method' => 'POST']) !!}

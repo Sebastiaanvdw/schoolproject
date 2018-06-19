@@ -7,6 +7,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Clickets</title>
     @yield('head')
+    <link rel="stylesheet" type="text/css" href="/clickets/public/css/stylesheet.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 @yield('css')
@@ -17,7 +18,8 @@
 </head>
 <body>
 <nav class="navbar fixed-top bg-info">
-    <a class="navbar-brand" href="/posts">Clickets</a>
+    <a class="navbar-brand" href="/clickets/public/">Clickets</a>
+
     @yield('nav')
 </nav>
 
