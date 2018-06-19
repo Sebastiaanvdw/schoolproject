@@ -7,6 +7,7 @@
             <input type="submit" value="Search" class="search_button">
         </form>
         <div id="results" class="grid-container">
+
         </div>
         @include('layouts.errors')
         @role('company')
