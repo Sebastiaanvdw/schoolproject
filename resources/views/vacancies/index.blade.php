@@ -10,7 +10,7 @@
 
         </div>
         @include('layouts.errors')
-        @role('company')
+        @role('verified-company')
         <a href="vacancies/create" class="create_field">
             {{ Form::submit('Create', ['class' => 'create_button']) }}
         </a>
